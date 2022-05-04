@@ -16,6 +16,8 @@
     "react-dom": "18.1.0"
   },
   "devDependencies": {
+    "@commitlint/cli": "^16.2.4",
+    "@strv/commitlint-config": "^2.1.0",
     "@strv/eslint-config-react": "^4.1.0",
     "@strv/eslint-config-typescript": "^3.1.2",
     "@strv/prettier-config": "^2.0.0",
