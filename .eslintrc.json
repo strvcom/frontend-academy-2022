@@ -1,3 +1,12 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": [
+    "next/core-web-vitals",
+    "@strv/react",
+    "@strv/typescript",
+    "@strv/typescript/react"
+  ],
+
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  }
 }
