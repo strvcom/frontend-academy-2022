@@ -1,5 +1,5 @@
-import { Header } from '~/components/Header'
-import { Layout } from '~/components/Layout'
+import { Header } from '~/features/ui/components/Header'
+import { Layout } from '~/features/ui/components/Layout'
 
 // @ts-ignore // Types to be added in TS lesson
 export const DefaultLayout = ({ children }) => (

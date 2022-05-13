@@ -1,4 +1,4 @@
-import { DefaultLayout } from '~/components/Layout/parts/DefaultLayout'
+import { DefaultLayout } from '~/features/ui/components/Layout/parts/DefaultLayout'
 
 export const DashboardPage = () => (
   <DefaultLayout>

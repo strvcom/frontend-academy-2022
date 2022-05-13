@@ -1,4 +1,4 @@
-import { palette } from '~/theme/palette'
+import { palette } from './palette'
 
 export const colors = {
   // backgrounds

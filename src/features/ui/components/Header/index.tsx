@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-import { Routes } from '~/constants/routes'
+import { Routes } from '~/features/core/constants/routes'
 
 export const Header = () => (
   <header>
