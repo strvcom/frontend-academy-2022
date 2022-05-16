@@ -1,11 +1,9 @@
-import Link from 'next/link'
-
-import { Routes } from '~/features/core/constants/routes'
+import { Logo } from './parts/Logo'
+import { SignIn } from './parts/SingIn'
 
 export const Header = () => (
   <header>
-    <Link href={Routes.DASHBOARD}>
-      <a>E.</a>
-    </Link>
+    <Logo />
+    <SignIn />
   </header>
 )
