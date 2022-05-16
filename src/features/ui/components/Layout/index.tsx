@@ -1,8 +1,9 @@
-// @ts-ignore // Types to be added in TS lesson
-export const Layout = ({ topElement, children, bottomElement }) => (
+import { Header } from '~/features/ui/components/Header'
+
+// @ts-ignore // TODO: Add types in TS lesson
+export const Layout = ({ children }) => (
   <>
-    {topElement}
-    {children}
-    {bottomElement}
+    <Header />
+    <main>{children}</main>
   </>
 )

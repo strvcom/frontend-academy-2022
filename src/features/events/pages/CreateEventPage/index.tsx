@@ -1,7 +1,7 @@
-import { DefaultLayout } from '~/features/ui/components/Layout/parts/DefaultLayout'
+import { Layout } from '~/features/ui/components/Layout'
 
 export const CreateEventPage = () => (
-  <DefaultLayout>
+  <Layout>
     <h1>This is Create Event Page!</h1>
-  </DefaultLayout>
+  </Layout>
 )
