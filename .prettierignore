@@ -1,0 +1,9 @@
+# 3rd Party Code
+node_modules
+
+# Generated
+.next
+.vercel
+
+# Misc
+.idea

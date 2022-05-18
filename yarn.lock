@@ -396,6 +396,11 @@
     "@typescript-eslint/parser" "^5.16.0"
     eslint-import-resolver-typescript "^2.7.0"
 
+"@strv/prettier-config@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@strv/prettier-config/-/prettier-config-2.0.0.tgz#67ea5868446d0bf993c43a9737906509bbf0ac12"
+  integrity sha512-oSlNjDtIwAbZPaXAhHbmft1rriRtHLAFOApAasYL7e/7x/VWdMN2ZzYWg6iIksgU6l6tcc6VhuRllPIWlNZXCg==
+
 "@types/json-schema@^7.0.9":
   version "7.0.11"
   resolved "https://registry.yarnpkg.com/@types/json-schema/-/json-schema-7.0.11.tgz#d421b6c527a3037f7c84433fd2c4229e016863d3"
@@ -1765,6 +1770,11 @@ prelude-ls@^1.2.1:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/prelude-ls/-/prelude-ls-1.2.1.tgz#debc6489d7a6e6b0e7611888cec880337d316396"
   integrity sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==
+
+prettier@^2.6.2:
+  version "2.6.2"
+  resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.6.2.tgz#e26d71a18a74c3d0f0597f55f01fb6c06c206032"
+  integrity sha512-PkUpF+qoXTqhOeWL9fu7As8LXsIUZ1WYaJiY/a7McAQzxjk82OF0tibkFXVCDImZtWxbvojFjerkiLb0/q8mew==
 
 prop-types@^15.8.1:
   version "15.8.1"
