@@ -1,7 +1,8 @@
+import type { AppProps } from 'next/app'
+
 import '~/features/ui/theme/globals.css'
 
-// @ts-ignore // Types to be added in TS lesson
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps }: AppProps) {
   return <Component {...pageProps} />
 }
 
