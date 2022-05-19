@@ -1,9 +1,9 @@
 import type { NextPage } from 'next'
 
-import { Layout } from '~/features/ui/components/Layout'
+import { LayoutPublic } from '~/features/ui/components/LayoutPublic'
 
 export const LoginPage: NextPage = () => (
-  <Layout>
+  <LayoutPublic>
     <h1>This is Login Page!</h1>
-  </Layout>
+  </LayoutPublic>
 )
