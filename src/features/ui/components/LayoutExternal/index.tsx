@@ -5,7 +5,7 @@ import { Header } from '~/features/ui/components/Header'
 import { AsideCover } from './parts/AsideCover'
 
 type Props = {
-  children?: ReactNode
+  children: NonNullable<ReactNode>
 }
 
 export const LayoutExternal: FC<Props> = ({ children }) => (
@@ -15,7 +15,3 @@ export const LayoutExternal: FC<Props> = ({ children }) => (
     <main>{children}</main>
   </>
 )
-
-LayoutExternal.defaultProps = {
-  children: null,
-}
