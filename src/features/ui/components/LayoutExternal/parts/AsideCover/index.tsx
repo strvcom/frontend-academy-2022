@@ -3,7 +3,7 @@ import type { FC } from 'react'
 export const AsideCover: FC = () => (
   <aside>
     <figure>
-      <blockquote>“Great, kid. Don’t get cocky.”</blockquote>
+      <q>Great, kid. Don’t get cocky.</q>
       <hr />
       <figcaption>Han Solo</figcaption>
     </figure>
