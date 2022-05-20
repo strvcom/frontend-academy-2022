@@ -8,7 +8,7 @@ type Props = {
   children?: ReactNode
 }
 
-export const LayoutPublic: FC<Props> = ({ children }) => (
+export const LayoutExternal: FC<Props> = ({ children }) => (
   <>
     <Header />
     <AsideCover />
@@ -16,6 +16,6 @@ export const LayoutPublic: FC<Props> = ({ children }) => (
   </>
 )
 
-LayoutPublic.defaultProps = {
+LayoutExternal.defaultProps = {
   children: null,
 }

@@ -6,7 +6,7 @@ type Props = {
   children: NonNullable<ReactNode>
 }
 
-export const Layout: FC<Props> = ({ children }) => (
+export const LayoutInternal: FC<Props> = ({ children }) => (
   <>
     <Header />
     <main>{children}</main>
