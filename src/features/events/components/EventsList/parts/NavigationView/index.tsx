@@ -1,6 +1,9 @@
 import type { FC } from 'react'
 
-type ViewType = 'GRID' | 'LIST'
+enum ViewType {
+  GRID = 'GRID',
+  LIST = 'LIST',
+}
 
 type Props = {
   onChange: (viewType: ViewType) => void
@@ -12,7 +15,7 @@ export const NavigationView: FC<Props> = ({ onChange }) => (
       <button
         type="button"
         aria-label="Show as grid"
-        onClick={() => onChange('GRID')}
+        onClick={() => onChange(ViewType.GRID)}
       >
         #
       </button>
@@ -21,7 +24,7 @@ export const NavigationView: FC<Props> = ({ onChange }) => (
       <button
         type="button"
         aria-label="Show as list"
-        onClick={() => onChange('LIST')}
+        onClick={() => onChange(ViewType.LIST)}
       >
         =
       </button>

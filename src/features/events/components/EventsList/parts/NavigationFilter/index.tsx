@@ -1,6 +1,10 @@
 import type { FC } from 'react'
 
-type FilterType = 'ALL' | 'FUTURE' | 'PAST'
+enum FilterType {
+  ALL = 'ALL',
+  FUTURE = 'FUTURE',
+  PAST = 'PAST',
+}
 
 type Props = {
   onChange: (filterType: FilterType) => void
@@ -9,17 +13,17 @@ type Props = {
 export const NavigationFilter: FC<Props> = ({ onChange }) => (
   <ul>
     <li>
-      <button type="button" onClick={() => onChange('ALL')}>
+      <button type="button" onClick={() => onChange(FilterType.ALL)}>
         All Events
       </button>
     </li>
     <li>
-      <button type="button" onClick={() => onChange('FUTURE')}>
+      <button type="button" onClick={() => onChange(FilterType.FUTURE)}>
         Future Events
       </button>
     </li>
     <li>
-      <button type="button" onClick={() => onChange('PAST')}>
+      <button type="button" onClick={() => onChange(FilterType.PAST)}>
         Past Events
       </button>
     </li>
