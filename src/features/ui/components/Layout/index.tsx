@@ -3,7 +3,7 @@ import type { ReactNode, FC } from 'react'
 import { Header } from '~/features/ui/components/Header'
 
 type Props = {
-  children?: ReactNode
+  children: NonNullable<ReactNode>
 }
 
 export const Layout: FC<Props> = ({ children }) => (
@@ -12,7 +12,3 @@ export const Layout: FC<Props> = ({ children }) => (
     <main>{children}</main>
   </>
 )
-
-Layout.defaultProps = {
-  children: null,
-}
