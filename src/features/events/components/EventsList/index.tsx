@@ -11,9 +11,15 @@ export const EventsList: FC = () => (
       <NavigationView onChange={(viewType) => alert(viewType)} />
     </nav>
     <ul>
-      <EventItem />
-      <EventItem />
-      <EventItem />
+      <li>
+        <EventItem />
+      </li>
+      <li>
+        <EventItem />
+      </li>
+      <li>
+        <EventItem />
+      </li>
     </ul>
   </>
 )
