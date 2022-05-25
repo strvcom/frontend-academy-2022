@@ -32,7 +32,7 @@ export const Quote = styled.q`
 `
 
 export const FigCaption = styled.figcaption`
-  ${typography.paragraph.normal}
+  ${typography.paragraph.large}
 `
 
 export const Hr = styled.hr`

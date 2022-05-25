@@ -25,7 +25,7 @@ export const FormWrapper = styled.div`
 `
 
 export const Description = styled.p`
-  ${typography.paragraph.normal}
+  ${typography.paragraph.large}
   margin: 0.5rem 0;
 `
 

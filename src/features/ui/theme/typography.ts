@@ -18,7 +18,7 @@ const allLabelsStyle = css`
   font-family: ${font.base};
   font-weight: inherit;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
 `
 
 const allParagraphsStyle = css`
@@ -63,9 +63,13 @@ export const typography = {
   paragraph: {
     small: css`
       ${allParagraphsStyle}
-      font-size: 1.6rem;
+      font-size: 1.4rem;
     `,
     normal: css`
+      ${allParagraphsStyle}
+      font-size: 1.6rem;
+    `,
+    large: css`
       ${allParagraphsStyle}
       font-size: 1.8rem;
     `,
