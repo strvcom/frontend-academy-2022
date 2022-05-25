@@ -3,7 +3,8 @@ export const palette = {
   grey: {
     100: '#323C46',
     500: '#949EA8',
-    800: '#C9CED3',
+    700: '#C9CED3',
+    800: '#D2D6DA',
     900: '#F9F9FB',
   },
 

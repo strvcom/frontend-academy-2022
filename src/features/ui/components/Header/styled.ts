@@ -24,9 +24,9 @@ export const StyledHeader = styled.header<{ isAbsolute?: boolean }>`
       position: absolute;
       top: 0;
       left: 0;
-    `}
 
-  ${StyledLogo} {
-    color: ${colors.text.inverted};
-  }
+      ${StyledLogo} {
+        color: ${colors.text.inverted};
+      }
+    `}
 `

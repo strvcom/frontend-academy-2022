@@ -4,7 +4,8 @@ export const colors = {
   text: {
     base: palette.grey[100],
     dimmed: palette.grey[500],
-    light: palette.grey[800],
+    light: palette.grey[700],
+    formLabel: palette.grey[800],
     inverted: palette.white,
   },
   background: {

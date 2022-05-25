@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 import { colors } from '~/features/ui/theme/colors'
 import { mq } from '~/features/ui/theme/mq'
-import { font } from '~/features/ui/theme/typography'
+import { font, typography } from '~/features/ui/theme/typography'
 
 export const Aside = styled.aside`
   display: none;
@@ -24,8 +24,21 @@ export const Aside = styled.aside`
 
 export const Quote = styled.q`
   display: block;
+  margin: 2rem 0;
   text-align: center;
   font-size: clamp(2rem, 2.2vw, 3.6rem);
   font-family: ${font.quotes};
   line-height: 1.166;
+`
+
+export const FigCaption = styled.figcaption`
+  ${typography.paragraph.normal}
+`
+
+export const Hr = styled.hr`
+  width: 1.2rem;
+  border: none;
+  border-top: 2px solid currentColor;
+  margin: 1.5rem auto;
+  color: ${colors.accent.primary};
 `
