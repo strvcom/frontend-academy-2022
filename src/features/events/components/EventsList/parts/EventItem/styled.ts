@@ -2,6 +2,7 @@ import styled, { css } from 'styled-components'
 
 import { Button } from '~/features/ui/components/Button'
 import { colors } from '~/features/ui/theme/colors'
+import { elevations } from '~/features/ui/theme/elevations'
 import { mq } from '~/features/ui/theme/mq'
 import { typography } from '~/features/ui/theme/typography'
 
@@ -26,8 +27,8 @@ export const EditButton = styled(Button).attrs({
 })``
 
 export const Article = styled.article<{ isRow: boolean }>`
+  ${elevations[100]}
   padding: 3.2rem;
-  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
   border-radius: 2px;
   background-color: white;
 

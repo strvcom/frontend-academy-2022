@@ -1,8 +1,10 @@
 import styled from 'styled-components'
 
 import { colors } from '~/features/ui/theme/colors'
+import { elevations } from '~/features/ui/theme/elevations'
 
 export const CreateLink = styled.a`
+  ${elevations[900]}
   display: flex;
   align-items: center;
   justify-content: center;
@@ -14,7 +16,6 @@ export const CreateLink = styled.a`
   margin: 3.2rem;
   border-radius: 50%;
   color: ${colors.text.inverted};
-  box-shadow: 0 6px 9px rgba(0, 0, 0, 0.15);
   cursor: pointer;
   background-color: ${colors.background.dark};
 `
