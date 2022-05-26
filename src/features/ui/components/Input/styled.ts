@@ -63,7 +63,7 @@ export const Label = styled.label<{ hasError?: boolean }>`
   ${(props) =>
     props.hasError &&
     css`
-      @media not (prefers-reduced-motion) {
+      @media (prefers-reduced-motion: no-preference) {
         animation: 0.5s ${shake};
       }
 

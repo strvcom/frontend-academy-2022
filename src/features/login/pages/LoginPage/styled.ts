@@ -6,9 +6,10 @@ import { typography } from '~/features/ui/theme/typography'
 
 export const Title = styled.h1`
   ${typography.heading.h2}
-  margin: 0;
 `
 
+// To not have <SubmitButton type="submit" … />, we are passing
+// this props right here to simplify the code in the main component
 export const SubmitButton = styled(Button).attrs({
   type: 'submit',
   accent: 'primary',
@@ -29,6 +30,7 @@ export const Description = styled.p`
   margin: 0.5rem 0;
 `
 
+// We are extending the Description component and adding addional styles to it
 export const ErrorMessage = styled(Description)`
   color: ${colors.accent.destructive};
 `

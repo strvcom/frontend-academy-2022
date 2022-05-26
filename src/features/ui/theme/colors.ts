@@ -6,12 +6,15 @@ export const colors = {
     dimmed: palette.grey[500],
     light: palette.grey[700],
     formLabel: palette.grey[800],
+    tabs: palette.grey[600],
     inverted: palette.white,
+    inactive: palette.grey[600],
   },
   background: {
     light: palette.white,
     dimmed: palette.grey[900],
     dark: palette.grey[100],
+    inactive: palette.grey[850],
   },
   accent: {
     primary: palette.green,

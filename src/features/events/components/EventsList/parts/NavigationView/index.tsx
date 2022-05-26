@@ -1,17 +1,17 @@
 import type { FC } from 'react'
 
-enum ViewType {
-  GRID = 'GRID',
-  LIST = 'LIST',
-}
+import { ListItem } from './styled'
+
+import { ViewType } from '../../types'
 
 type Props = {
+  activeView: ViewType
   onChange: (viewType: ViewType) => void
 }
 
-export const NavigationView: FC<Props> = ({ onChange }) => (
+export const NavigationView: FC<Props> = ({ activeView, onChange }) => (
   <ul>
-    <li>
+    <ListItem isActive={activeView === ViewType.GRID}>
       <button
         type="button"
         aria-label="Show as grid"
@@ -19,8 +19,8 @@ export const NavigationView: FC<Props> = ({ onChange }) => (
       >
         #
       </button>
-    </li>
-    <li>
+    </ListItem>
+    <ListItem isActive={activeView === ViewType.LIST}>
       <button
         type="button"
         aria-label="Show as list"
@@ -28,6 +28,6 @@ export const NavigationView: FC<Props> = ({ onChange }) => (
       >
         =
       </button>
-    </li>
+    </ListItem>
   </ul>
 )

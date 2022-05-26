@@ -10,38 +10,51 @@ type ButtonProps = {
 }
 
 export const Button = styled.button<ButtonProps>`
-  --backgrund-color: ${colors.background.dark};
-  --backgrund-color-hover: ${colors.background.dark};
+  /*
+    Using CSS variables across multiple files is usually a bad idea,
+    because unlike with JS variables we don't get typescript's help.
+
+    However, within a single file like here CSS variables can save us
+    a few lines of typing and make the code easier to read.
+  */
+  --text-color: ${colors.text.inverted};
+  --background-color: ${colors.background.dark};
+  --background-color-hover: ${colors.background.dark};
 
   ${StyleReset}
   ${typography.label.large}
   padding: 0.8em 5.4em;
-  color: ${colors.text.inverted};
+  color: var(--text-color);
   border-radius: 4px;
   transition: background-color 0.3s;
-  background-color: var(--backgrund-color);
+  background-color: var(--background-color);
+
+  &:disabled {
+    --text-color: ${colors.text.inactive};
+    --background-color: ${colors.background.inactive};
+  }
 
   &:not(:disabled) {
     cursor: pointer;
-  }
 
-  &:hover,
-  &:focus {
-    background-color: var(--backgrund-color-hover);
+    &:hover,
+    &:focus {
+      background-color: var(--background-color-hover);
+    }
   }
 
   ${(props) =>
     props.accent === 'primary' &&
     css`
-      --backgrund-color: ${colors.accent.primary};
-      --backgrund-color-hover: ${colors.accent.primaryHover};
+      --background-color: ${colors.accent.primary};
+      --background-color-hover: ${colors.accent.primaryHover};
     `}
 
   ${(props) =>
     props.accent === 'destructive' &&
     css`
-      --backgrund-color: ${colors.accent.destructive};
-      --backgrund-color-hover: ${colors.accent.destructiveHover};
+      --background-color: ${colors.accent.destructive};
+      --background-color-hover: ${colors.accent.destructiveHover};
     `}
 
   ${(props) =>

@@ -1,14 +1,20 @@
 import type { FC } from 'react'
 
-export const EventItem: FC = () => (
-  <article>
+import { Article, Count, Description, Name, Title, EditButton } from './styled'
+
+type Props = {
+  isRow: boolean
+}
+
+export const EventItem: FC<Props> = ({ isRow }) => (
+  <Article isRow={isRow}>
     <time>April 4, 2017 – 2:17 PM</time>
-    <h3>How to get angry</h3>
-    <p>Tom Watts</p>
-    <p>I will show you how to get angry in a second</p>
-    <p>
+    <Title>How to get angry</Title>
+    <Name>Tom Watts</Name>
+    <Description>I will show you how to get angry in a second</Description>
+    <Count>
       9 <span>of</span> 20
-    </p>
-    <button type="button">Edit</button>
-  </article>
+    </Count>
+    <EditButton>Edit</EditButton>
+  </Article>
 )

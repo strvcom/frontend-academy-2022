@@ -1,12 +1,17 @@
 import { createGlobalStyle } from 'styled-components'
 
+import { colors } from './colors'
 import { font } from './typography'
 
 export const GlobalStyle = createGlobalStyle`
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
 html,
 body, #__next {
   padding: 0;
-  margin: 0;
   height: 100%;
 }
 
@@ -27,7 +32,11 @@ a {
   text-decoration: none;
 }
 
-*, *::before, *::after {
-  box-sizing: border-box;
+&:focus {
+  outline: none;
+}
+
+&:not(input):focus-visible {
+  outline: 3px solid ${colors.accent.primary}88;
 }
 `

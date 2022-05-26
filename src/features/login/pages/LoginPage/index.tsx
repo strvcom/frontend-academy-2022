@@ -43,7 +43,12 @@ export const LoginPage: NextPage = () => {
           <p>
             <SubmitButton>Sign In</SubmitButton>
           </p>
-          <p>
+
+          {/*
+            Created just to showcase CSS animations.
+            To be removed. Please do not use style attribute.
+          */}
+          <p style={{ marginTop: '1rem' }}>
             <Button
               type="button"
               size="small"
