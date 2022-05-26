@@ -6,6 +6,6 @@ export const elevations = {
   `,
   900: css`
     box-shadow: 0 6px 9px rgba(0, 0, 0, 0.15);
-    z-index: 1000;
+    z-index: 900;
   `,
 }

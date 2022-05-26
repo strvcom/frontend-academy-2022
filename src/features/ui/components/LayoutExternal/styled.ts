@@ -23,10 +23,15 @@ export const Main = styled.main`
   padding: 0 2rem;
 
   ${mq.medium} {
-    padding-top: 4rem;
-    padding-bottom: 4rem;
+    padding: 4rem;
   }
 
+  /*
+    We could remove &::before and &::after pseudo-elements and use just
+    justify-content: center; instead. However, with these pseudo-elements,
+    we get more control over the placement and push it a bit upwards
+    to make it more centered optically.
+  */
   &::before,
   &::after {
     content: '';
