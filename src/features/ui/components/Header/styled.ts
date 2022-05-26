@@ -24,12 +24,14 @@ export const StyledHeader = styled.header<{ isAbsolute?: boolean }>`
   ${(props) =>
     props.isAbsolute &&
     css`
-      position: absolute;
-      top: 0;
-      left: 0;
+      ${mq.medium} {
+        position: absolute;
+        top: 0;
+        left: 0;
 
-      ${StyledLogo} {
-        color: ${colors.text.inverted};
+        ${StyledLogo} {
+          color: ${colors.text.inverted};
+        }
       }
     `}
 `

@@ -9,7 +9,7 @@ export const Title = styled.h1`
 `
 
 // To not have <SubmitButton type="submit" … />, we are passing
-// this props right here to simplify the code in the main component
+// this prop right here to simplify the code in the main component
 export const SubmitButton = styled(Button).attrs({
   type: 'submit',
   accent: 'primary',
