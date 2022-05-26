@@ -30,7 +30,7 @@ export const Article = styled.article<{ isRow: boolean }>`
   ${elevations[100]}
   padding: 3.2rem;
   border-radius: 2px;
-  background-color: white;
+  background-color: ${colors.background.light};
 
   ${(props) =>
     props.isRow &&

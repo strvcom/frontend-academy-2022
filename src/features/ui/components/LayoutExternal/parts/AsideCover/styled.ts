@@ -16,7 +16,7 @@ export const Aside = styled.aside`
     max-width: 48rem;
     min-width: 30rem;
     padding: 8rem clamp(2rem, 2.2vw, 4rem) 4rem;
-    color: white;
+    color: ${colors.text.inverted};
     text-align: center;
     background-color: ${colors.background.dark};
   }
