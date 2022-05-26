@@ -15,11 +15,14 @@ export const Aside = styled.aside`
     width: 30%;
     max-width: 48rem;
     min-width: 30rem;
-    padding: 8rem clamp(2rem, 2.2vw, 4rem) 4rem;
     color: ${colors.text.inverted};
     text-align: center;
     background-color: ${colors.background.dark};
   }
+`
+
+export const Figure = styled.figure`
+  padding: 8rem clamp(2rem, 2.2vw, 4rem) 4rem;
 `
 
 export const Quote = styled.q`
