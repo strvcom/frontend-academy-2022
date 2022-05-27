@@ -5,10 +5,7 @@ import { mq } from '~/features/ui/theme/mq'
 
 import { Logo } from './parts/Logo'
 
-export const StyledLogo = styled(Logo)`
-  font-size: 2.8rem;
-  line-height: 1;
-`
+export const StyledLogo = styled(Logo)``
 
 export const StyledHeader = styled.header<{ isAbsolute?: boolean }>`
   position: relative;
