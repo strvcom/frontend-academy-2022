@@ -7,8 +7,7 @@ export const ListItem = styled.li<{ isActive: boolean }>`
   display: inline-block;
   list-style: none;
   margin-left: 0.8rem;
-  color: ${(props) =>
-    props.isActive ? colors.text.base : colors.background.inactive};
+  color: ${(props) => (props.isActive ? colors.text.base : colors.text.silent)};
 
   button {
     ${StyleReset}

@@ -9,6 +9,7 @@ export const colors = {
     tabs: palette.grey[600],
     inverted: palette.white,
     inactive: palette.grey[600],
+    silent: palette.grey[850],
   },
   background: {
     light: palette.white,
