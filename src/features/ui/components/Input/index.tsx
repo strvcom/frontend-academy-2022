@@ -1,6 +1,7 @@
 import type { FC, InputHTMLAttributes } from 'react'
 import { useState } from 'react'
 
+import { EyeIcon } from './parts/EyeIcon'
 import {
   InputWrapper,
   Label,
@@ -38,7 +39,7 @@ export const Input: FC<Props> = ({ label, name, type, error, ...rest }) => {
             onClick={() => togglePassword(!isPasswordShown)}
             aria-label="Display password text"
           >
-            👁
+            <EyeIcon />
           </PasswordToggle>
         )}
       </Label>
