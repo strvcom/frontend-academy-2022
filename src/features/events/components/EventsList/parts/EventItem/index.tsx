@@ -1,6 +1,15 @@
 import type { FC } from 'react'
 
-import { Article, Count, Description, Name, Title, EditButton } from './styled'
+import { UserIcon } from './parts/UserIcon'
+import {
+  Article,
+  CountWrapper,
+  Count,
+  Description,
+  Name,
+  Title,
+  EditButton,
+} from './styled'
 
 type Props = {
   isRow: boolean
@@ -12,9 +21,12 @@ export const EventItem: FC<Props> = ({ isRow }) => (
     <Title>How to get angry</Title>
     <Name>Tom Watts</Name>
     <Description>I will show you how to get angry in a second</Description>
-    <Count>
-      9 <span>of</span> 20
-    </Count>
+    <CountWrapper>
+      <UserIcon />
+      <Count>
+        9 <span>of</span> 20
+      </Count>
+    </CountWrapper>
     <EditButton>Edit</EditButton>
   </Article>
 )
