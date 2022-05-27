@@ -11,11 +11,13 @@ export const StyledLogo = styled(Logo)`
 `
 
 export const StyledHeader = styled.header<{ isAbsolute?: boolean }>`
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
   padding: 2.4rem;
+  z-index: 100;
 
   ${mq.medium} {
     padding: 4rem;
