@@ -14,6 +14,7 @@ export const AsideCover: FC = () => (
       objectPosition="right"
       placeholder="blur"
       priority
+      aria-hidden="true"
     />
 
     <Figure>
