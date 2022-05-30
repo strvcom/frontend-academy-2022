@@ -22,7 +22,7 @@ export const List = styled.ul<{ view: ViewType }>`
   display: grid;
   gap: 1.5rem;
   padding: 0;
-  margin: 3rem 0;
+  padding: 3rem 0 8rem;
   list-style: none;
   color: ${colors.text.dimmed};
 
