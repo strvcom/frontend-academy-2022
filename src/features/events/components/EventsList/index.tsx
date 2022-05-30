@@ -7,7 +7,7 @@ import { List, Nav } from './styled'
 import { ViewType } from './types'
 
 export const EventsList: FC = () => {
-  const view: ViewType = ViewType.GRID
+  const view = ViewType.GRID as ViewType
 
   return (
     <>
@@ -20,13 +20,45 @@ export const EventsList: FC = () => {
       </Nav>
 
       <List view={view}>
-        {[...Array(10)].map((_, index) => (
-          // Index should never be used as a key for dynamic data.
-          // It is fine for static data like these, will be updated in the future.
-          <li key={index}>
-            <EventItem isRow={(view as ViewType) === ViewType.LIST} />
-          </li>
-        ))}
+        <li>
+          <EventItem isRow={view === ViewType.LIST} />
+        </li>
+        
+        <li>
+          <EventItem isRow={view === ViewType.LIST} />
+        </li>
+        
+        <li>
+          <EventItem isRow={view === ViewType.LIST} />
+        </li>
+        
+        <li>
+          <EventItem isRow={view === ViewType.LIST} />
+        </li>
+        
+        <li>
+          <EventItem isRow={view === ViewType.LIST} />
+        </li>
+        
+        <li>
+          <EventItem isRow={view === ViewType.LIST} />
+        </li>
+        
+        <li>
+          <EventItem isRow={view === ViewType.LIST} />
+        </li>
+        
+        <li>
+          <EventItem isRow={view === ViewType.LIST} />
+        </li>
+        
+        <li>
+          <EventItem isRow={view === ViewType.LIST} />
+        </li>
+        
+        <li>
+          <EventItem isRow={view === ViewType.LIST} />
+        </li>
       </List>
     </>
   )
