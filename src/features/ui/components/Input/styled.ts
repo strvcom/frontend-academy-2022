@@ -24,6 +24,11 @@ export const LabelText = styled.span`
   transform-origin: 0 50%;
 `
 
+/*
+  There is no need to add Styled* prefix to your styled components,
+  here we are adding that just because we already have Input component as parent,
+  so we need to avoid name conflict.
+*/
 export const StyledInput = styled.input`
   ${StyleReset}
   ${padding}

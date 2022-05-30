@@ -37,6 +37,10 @@ a {
 }
 
 &:not(input):focus-visible {
+  /*
+    "88" adds transparency channel to our existing theme color.
+    Applicable only to hex color notation.
+  */
   outline: 3px solid ${colors.accent.primary}88;
 }
 `
