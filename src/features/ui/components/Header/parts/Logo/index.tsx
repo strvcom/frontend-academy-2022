@@ -12,7 +12,7 @@ type Props = {
 export const Logo: FC<Props> = ({ className = '' }) => (
   <Link href={Routes.DASHBOARD}>
     {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-    <a className={className}>
+    <a className={className} aria-label="Go to dashboard">
       <LogoIcon />
     </a>
   </Link>
