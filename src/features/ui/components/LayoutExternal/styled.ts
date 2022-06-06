@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 
+import { VerticalCenter } from '~/features/ui/components/VerticalCenter'
 import { mq } from '~/features/ui/theme/mq'
 
 export const Layout = styled.div`
@@ -13,4 +14,8 @@ export const Layout = styled.div`
     flex-direction: row;
     text-align: start;
   }
+`
+
+export const Main = styled(VerticalCenter).attrs({ as: 'main' })`
+  position: relative;
 `
