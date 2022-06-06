@@ -8,13 +8,9 @@ type Props = {
   actionComponent?: ReactNode
 }
 
-export const Header: FC<Props> = ({ isExternal, actionComponent }) => (
+export const Header: FC<Props> = ({ isExternal = false, actionComponent }) => (
   <StyledHeader isAbsolute={isExternal}>
     <StyledLogo />
     {actionComponent ?? <SignIn />}
   </StyledHeader>
 )
-
-Header.defaultProps = {
-  isExternal: false,
-}
