@@ -18,6 +18,7 @@ export const SubmitButton = styled(Button).attrs({
 export const FormWrapper = styled.div`
   width: 100%;
   max-width: 56rem;
+  margin: 0 auto;
 
   > form,
   ${SubmitButton} {

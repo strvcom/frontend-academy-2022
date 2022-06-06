@@ -64,6 +64,7 @@ export const Label = styled.label<{ hasError?: boolean }>`
   display: block;
   position: relative;
   padding-top: 2rem;
+  text-align: start;
 
   ${(props) =>
     props.hasError &&

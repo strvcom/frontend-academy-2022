@@ -3,16 +3,18 @@ import styled from 'styled-components'
 import { mq, ScreenSize } from '~/features/ui/theme/mq'
 
 export const Container = styled.div`
+  --horizontal-spacing: 0.8rem;
+
   margin: 0 auto;
-  padding: 0 0.8rem;
-  max-width: ${ScreenSize.large / 10}rem;
-  box-sizing: content-box;
+  padding: 0 var(--horizontal-spacing);
+  max-width: calc(${ScreenSize.large / 10}rem + 2 * var(--horizontal-spacing));
+  width: 100%;
 
   ${mq.medium} {
-    padding: 0 2rem;
+    --horizontal-spacing: 2rem;
   }
 
   ${mq.large} {
-    padding: 0 4rem;
+    --horizontal-spacing: 4rem;
   }
 `
