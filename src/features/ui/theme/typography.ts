@@ -19,6 +19,7 @@ const allLabelsStyle = css`
   font-weight: inherit;
   text-transform: uppercase;
   letter-spacing: 0.08em;
+  font-weight: 600;
 `
 
 const allParagraphsStyle = css`
