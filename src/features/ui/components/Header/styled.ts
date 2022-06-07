@@ -7,6 +7,8 @@ import { Logo } from './parts/Logo'
 
 export const StyledLogo = styled(Logo)``
 
+export const BackLink = styled.span``
+
 export const StyledHeader = styled.header<{ isAbsolute?: boolean }>`
   position: relative;
   display: flex;

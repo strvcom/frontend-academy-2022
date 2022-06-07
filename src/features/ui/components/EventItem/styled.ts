@@ -9,6 +9,7 @@ import { typography } from '~/features/ui/theme/typography'
 export const Title = styled.h3`
   ${typography.heading.h3}
   color: ${colors.text.base};
+  cursor: pointer;
 `
 
 export const Name = styled.p``
@@ -34,10 +35,24 @@ export const EditButton = styled(Button).attrs({
 })``
 
 export const Article = styled.article<{ isRow: boolean }>`
+  ${typography.paragraph.small}
   ${elevations[100]}
   padding: 3.2rem;
   border-radius: 2px;
   background-color: ${colors.background.light};
+  color: ${colors.text.dimmed};
+
+  ${(props) =>
+    !props.isRow &&
+    css`
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+
+      > *:not(:nth-last-child(3) ~ *) {
+        grid-column: 1 / 3;
+      }
+    `}
 
   ${(props) =>
     props.isRow &&
