@@ -1,7 +1,6 @@
 import type { ReactNode, FC } from 'react'
 
 import { Header } from '~/features/ui/components/Header'
-import { VerticalCenter } from '~/features/ui/components/VerticalCenter'
 
 import { InternalGlobalStyle, Layout } from './styled'
 
@@ -17,6 +16,6 @@ export const LayoutInternal: FC<Props> = ({
   <Layout>
     <InternalGlobalStyle />
     <Header actionComponent={headerActionComponent} />
-    <VerticalCenter as="main">{children}</VerticalCenter>
+    <main>{children}</main>
   </Layout>
 )
