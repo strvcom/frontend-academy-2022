@@ -1,0 +1,420 @@
+[
+  {
+    "_id": "628a2c5ce02f11001bec0974",
+    "updatedAt": "2022-05-22T12:28:12.499Z",
+    "createdAt": "2022-05-22T12:28:12.499Z",
+    "title": "Teambuilding at Central Park",
+    "description": "Hello friends, it's time to have some fun together in NYC again.",
+    "startsAt": "2022-07-01T01:31:21.289Z",
+    "capacity": 10,
+    "owner": {
+      "_id": "628a2c5ce02f11001bec0970",
+      "firstName": "Steven",
+      "lastName": "Rogers",
+      "email": "steverogers@strv.com",
+      "__v": 0,
+      "id": "628a2c5ce02f11001bec0970"
+    },
+    "__v": 0,
+    "attendees": [
+      {
+        "_id": "628a2c5ce02f11001bec096d",
+        "firstName": "Natasha",
+        "lastName": "Romanova",
+        "email": "blackwidow@strv.com",
+        "__v": 0,
+        "id": "628a2c5ce02f11001bec096d"
+      },
+      {
+        "_id": "628a2c5ce02f11001bec096c",
+        "firstName": "Bruce",
+        "lastName": "Banner",
+        "email": "brucebanner@strv.com",
+        "__v": 0,
+        "id": "628a2c5ce02f11001bec096c"
+      },
+      {
+        "_id": "628a2c5ce02f11001bec096e",
+        "firstName": "Thor",
+        "lastName": "Odinson",
+        "email": "thor@strv.com",
+        "__v": 0,
+        "id": "628a2c5ce02f11001bec096e"
+      },
+      {
+        "_id": "628a2c5ce02f11001bec0972",
+        "firstName": "Anthony",
+        "lastName": "Stark",
+        "email": "tonystark@strv.com",
+        "__v": 0,
+        "id": "628a2c5ce02f11001bec0972"
+      }
+    ],
+    "id": "1"
+  },
+  {
+    "_id": "628a2c5ce02f11001bec0975",
+    "updatedAt": "2022-05-22T12:28:12.499Z",
+    "createdAt": "2022-05-22T12:28:12.499Z",
+    "title": "IoT Workshop",
+    "description": "Are you interested in my toys? Come to my Tower for a workshop how to develop a smart suit.",
+    "startsAt": "2022-07-11T01:31:21.289Z",
+    "capacity": 10,
+    "owner": {
+      "_id": "628a2c5ce02f11001bec0972",
+      "firstName": "Anthony",
+      "lastName": "Stark",
+      "email": "tonystark@strv.com",
+      "__v": 0,
+      "id": "628a2c5ce02f11001bec0972"
+    },
+    "__v": 0,
+    "attendees": [
+      {
+        "_id": "628a2c5ce02f11001bec096c",
+        "firstName": "Bruce",
+        "lastName": "Banner",
+        "email": "brucebanner@strv.com",
+        "__v": 0,
+        "id": "628a2c5ce02f11001bec096c"
+      }
+    ],
+    "id": "2"
+  },
+  {
+    "_id": "628a2c5ce02f11001bec0973",
+    "updatedAt": "2022-05-22T12:28:12.498Z",
+    "createdAt": "2022-05-22T12:28:12.498Z",
+    "title": "Loki wanted",
+    "description": "Hey, my brother is still on the run! Can you guys help me, please? Let's meet and plan how to catch him.",
+    "startsAt": "2022-06-16T01:31:21.287Z",
+    "capacity": 10,
+    "owner": {
+      "_id": "628a2c5ce02f11001bec096e",
+      "firstName": "Thor",
+      "lastName": "Odinson",
+      "email": "thor@strv.com",
+      "__v": 0,
+      "id": "628a2c5ce02f11001bec096e"
+    },
+    "__v": 0,
+    "attendees": [
+      {
+        "_id": "628a2c5ce02f11001bec096d",
+        "firstName": "Natasha",
+        "lastName": "Romanova",
+        "email": "blackwidow@strv.com",
+        "__v": 0,
+        "id": "628a2c5ce02f11001bec096d"
+      },
+      {
+        "_id": "628a2c5ce02f11001bec096c",
+        "firstName": "Bruce",
+        "lastName": "Banner",
+        "email": "brucebanner@strv.com",
+        "__v": 0,
+        "id": "628a2c5ce02f11001bec096c"
+      },
+      {
+        "_id": "628a2c5ce02f11001bec0970",
+        "firstName": "Steven",
+        "lastName": "Rogers",
+        "email": "steverogers@strv.com",
+        "__v": 0,
+        "id": "628a2c5ce02f11001bec0970"
+      },
+      {
+        "_id": "628a2c5ce02f11001bec0971",
+        "firstName": "James",
+        "lastName": "Barnes",
+        "email": "buckybarnes@strv.com",
+        "__v": 0,
+        "id": "628a2c5ce02f11001bec0971"
+      },
+      {
+        "_id": "628a2c5ce02f11001bec0972",
+        "firstName": "Anthony",
+        "lastName": "Stark",
+        "email": "tonystark@strv.com",
+        "__v": 0,
+        "id": "628a2c5ce02f11001bec0972"
+      }
+    ],
+    "id": "3"
+  },
+  {
+    "_id": "628a2c5ce02f11001bec0123",
+    "updatedAt": "2022-08-22T12:28:12.498Z",
+    "createdAt": "2022-08-22T12:28:12.498Z",
+    "title": "Retrospective at Tony's",
+    "description": "Hey, come and let's discuss what happened in NYC.",
+    "startsAt": "2022-08-20T01:31:21.287Z",
+    "capacity": 40,
+    "owner": {
+      "_id": "628a2c5ce02f11001bec096e",
+      "firstName": "Thor",
+      "lastName": "Odinson",
+      "email": "thor@strv.com",
+      "__v": 0,
+      "id": "628a2c5ce02f11001bec096e"
+    },
+    "__v": 0,
+    "attendees": [
+      {
+        "_id": "628a2c5ce02f11001bec096d",
+        "firstName": "Natasha",
+        "lastName": "Romanova",
+        "email": "blackwidow@strv.com",
+        "__v": 0,
+        "id": "628a2c5ce02f11001bec096d"
+      },
+      {
+        "_id": "628a2c5ce02f11001bec0971",
+        "firstName": "James",
+        "lastName": "Barnes",
+        "email": "buckybarnes@strv.com",
+        "__v": 0,
+        "id": "628a2c5ce02f11001bec0971"
+      },
+      {
+        "_id": "628a2c5ce02f11001bec0972",
+        "firstName": "Anthony",
+        "lastName": "Stark",
+        "email": "tonystark@strv.com",
+        "__v": 0,
+        "id": "628a2c5ce02f11001bec0972"
+      }
+    ],
+    "id": "4"
+  },
+  {
+    "_id": "628a2c5ce02f11001bec0124",
+    "updatedAt": "2022-05-05T12:28:12.499Z",
+    "createdAt": "2022-05-05T12:28:12.499Z",
+    "title": "My New Car Testdrive",
+    "description": "Yo. I just bought the newest E-Tron, wanna give it a shot?",
+    "startsAt": "2022-09-10T01:31:21.289Z",
+    "capacity": 10,
+    "owner": {
+      "_id": "628a2c5ce02f11001bec0972",
+      "firstName": "Anthony",
+      "lastName": "Stark",
+      "email": "tonystark@strv.com",
+      "__v": 0,
+      "id": "628a2c5ce02f11001bec0972"
+    },
+    "__v": 0,
+    "attendees": [
+      {
+        "_id": "628a2c5ce02f11001bec096c",
+        "firstName": "Bruce",
+        "lastName": "Banner",
+        "email": "brucebanner@strv.com",
+        "__v": 0,
+        "id": "628a2c5ce02f11001bec096c"
+      }
+    ],
+    "id": "5"
+  },
+  {
+    "_id": "628a2c5ce02f11001bec0125",
+    "updatedAt": "2022-05-22T12:28:12.499Z",
+    "createdAt": "2022-05-22T12:28:12.499Z",
+    "title": "Museum of National History",
+    "description": "Hello fellaz! I got a new job as a guide of the Museum, wanna see the new exhibition of WW1?",
+    "startsAt": "2022-11-01T01:31:21.289Z",
+    "capacity": 10,
+    "owner": {
+      "_id": "628a2c5ce02f11001bec0970",
+      "firstName": "Steven",
+      "lastName": "Rogers",
+      "email": "steverogers@strv.com",
+      "__v": 0,
+      "id": "628a2c5ce02f11001bec0970"
+    },
+    "__v": 0,
+    "attendees": [
+      {
+        "_id": "628a2c5ce02f11001bec096d",
+        "firstName": "Natasha",
+        "lastName": "Romanova",
+        "email": "blackwidow@strv.com",
+        "__v": 0,
+        "id": "628a2c5ce02f11001bec096d"
+      },
+      {
+        "_id": "628a2c5ce02f11001bec096c",
+        "firstName": "Bruce",
+        "lastName": "Banner",
+        "email": "brucebanner@strv.com",
+        "__v": 0,
+        "id": "628a2c5ce02f11001bec096c"
+      }
+    ],
+    "id": "6"
+  },
+  {
+    "_id": "628a2c5ce02f11001bec0126",
+    "updatedAt": "2022-05-22T12:28:12.499Z",
+    "createdAt": "2022-05-22T12:28:12.499Z",
+    "title": "Graduation Party",
+    "description": "Let's throw a party at the Stark Tower Complex. We got several potential Avengers!",
+    "startsAt": "2022-06-28T01:31:21.289Z",
+    "capacity": 10,
+    "owner": {
+      "_id": "628a2c5ce02f11001bec0972",
+      "firstName": "Anthony",
+      "lastName": "Stark",
+      "email": "tonystark@strv.com",
+      "__v": 0,
+      "id": "628a2c5ce02f11001bec0972"
+    },
+    "__v": 0,
+    "attendees": [
+      {
+        "_id": "628a2c5ce02f11001bec096c",
+        "firstName": "Bruce",
+        "lastName": "Banner",
+        "email": "brucebanner@strv.com",
+        "__v": 0,
+        "id": "628a2c5ce02f11001bec096c"
+      }
+    ],
+    "id": "7"
+  },
+  {
+    "_id": "628a2c5ce02f11001bec0127",
+    "updatedAt": "2022-05-22T12:28:12.498Z",
+    "createdAt": "2022-05-22T12:28:12.498Z",
+    "title": "Tour through Asgard",
+    "description": "Yo, Heimdall will be awaiting you at Bifrost. From there, I'll pick you up and show you the rest of our paradise.",
+    "startsAt": "2022-07-01T02:31:21.287Z",
+    "capacity": 5,
+    "owner": {
+      "_id": "628a2c5ce02f11001bec096e",
+      "firstName": "Thor",
+      "lastName": "Odinson",
+      "email": "thor@strv.com",
+      "__v": 0,
+      "id": "628a2c5ce02f11001bec096e"
+    },
+    "__v": 0,
+    "attendees": [
+      {
+        "_id": "628a2c5ce02f11001bec096d",
+        "firstName": "Natasha",
+        "lastName": "Romanova",
+        "email": "blackwidow@strv.com",
+        "__v": 0,
+        "id": "628a2c5ce02f11001bec096d"
+      },
+      {
+        "_id": "628a2c5ce02f11001bec096c",
+        "firstName": "Bruce",
+        "lastName": "Banner",
+        "email": "brucebanner@strv.com",
+        "__v": 0,
+        "id": "628a2c5ce02f11001bec096c"
+      },
+      {
+        "_id": "628a2c5ce02f11001bec0970",
+        "firstName": "Steven",
+        "lastName": "Rogers",
+        "email": "steverogers@strv.com",
+        "__v": 0,
+        "id": "628a2c5ce02f11001bec0970"
+      },
+      {
+        "_id": "628a2c5ce02f11001bec0971",
+        "firstName": "James",
+        "lastName": "Barnes",
+        "email": "buckybarnes@strv.com",
+        "__v": 0,
+        "id": "628a2c5ce02f11001bec0971"
+      },
+      {
+        "_id": "628a2c5ce02f11001bec0972",
+        "firstName": "Anthony",
+        "lastName": "Stark",
+        "email": "tonystark@strv.com",
+        "__v": 0,
+        "id": "628a2c5ce02f11001bec0972"
+      }
+    ],
+    "id": "8"
+  },
+  {
+    "_id": "628a2c5ce02f11001bec0128",
+    "updatedAt": "2022-05-22T12:28:12.499Z",
+    "createdAt": "2022-05-22T12:28:12.499Z",
+    "title": "Christmas Eve",
+    "description": "Hey fam, how about to spend Xmas this year all together?",
+    "startsAt": "2022-12-24T01:31:21.289Z",
+    "capacity": 23,
+    "owner": {
+      "_id": "628a2c5ce02f11001bec0970",
+      "firstName": "Steven",
+      "lastName": "Rogers",
+      "email": "steverogers@strv.com",
+      "__v": 0,
+      "id": "628a2c5ce02f11001bec0970"
+    },
+    "__v": 0,
+    "attendees": [
+      {
+        "_id": "628a2c5ce02f11001bec096d",
+        "firstName": "Natasha",
+        "lastName": "Romanova",
+        "email": "blackwidow@strv.com",
+        "__v": 0,
+        "id": "628a2c5ce02f11001bec096d"
+      },
+      {
+        "_id": "628a2c5ce02f11001bec096c",
+        "firstName": "Bruce",
+        "lastName": "Banner",
+        "email": "brucebanner@strv.com",
+        "__v": 0,
+        "id": "628a2c5ce02f11001bec096c"
+      },
+      {
+        "_id": "628a2c5ce02f11001bec096e",
+        "firstName": "Thor",
+        "lastName": "Odinson",
+        "email": "thor@strv.com",
+        "__v": 0,
+        "id": "628a2c5ce02f11001bec0128"
+      }
+    ],
+    "id": "9"
+  },
+  {
+    "_id": "628a2c5ce02f11001bec0129",
+    "updatedAt": "2022-03-22T12:28:12.499Z",
+    "createdAt": "2022-03-22T12:28:12.499Z",
+    "title": "Dancing Class",
+    "description": "I'll try to teach you some moves I learnt from Peggy.",
+    "startsAt": "2022-04-21T01:31:21.289Z",
+    "capacity": 23,
+    "owner": {
+      "_id": "628a2c5ce02f11001bec0970",
+      "firstName": "Steven",
+      "lastName": "Rogers",
+      "email": "steverogers@strv.com",
+      "__v": 0,
+      "id": "628a2c5ce02f11001bec0970"
+    },
+    "__v": 0,
+    "attendees": [
+      {
+        "_id": "628a2c5ce02f11001bec096d",
+        "firstName": "Natasha",
+        "lastName": "Romanova",
+        "email": "blackwidow@strv.com",
+        "__v": 0,
+        "id": "628a2c5ce02f11001bec096d"
+      }
+    ],
+    "id": "10"
+  }
+]
