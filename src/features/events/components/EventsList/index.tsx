@@ -16,6 +16,11 @@ const sorts = {
   descending: (a: Event, b: Event) => (a.startsAt > b.startsAt ? -1 : 1),
 }
 
+const filters = {
+  future: (event: Event) => isAfter(new Date(event.startsAt), new Date()),
+  past: (event: Event) => isBefore(new Date(event.startsAt), new Date()),
+}
+
 /**
  * Renders a list of events, with filtering/sorting/view type options.
  */
@@ -29,13 +34,9 @@ export const EventsList: FC = () => {
     if (filter === FilterType.ALL) {
       return [...data].sort(sorts.ascending)
     } else if (filter === FilterType.FUTURE) {
-      return data
-        .filter((event) => isAfter(new Date(event.startsAt), new Date()))
-        .sort(sorts.ascending)
+      return data.filter(filters.future).sort(sorts.ascending)
     } else {
-      return data
-        .filter((event) => isBefore(new Date(event.startsAt), new Date()))
-        .sort(sorts.descending)
+      return data.filter(filters.past).sort(sorts.descending)
     }
   }, [data, filter])
 
