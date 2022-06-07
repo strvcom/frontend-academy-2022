@@ -12,13 +12,21 @@ import { useEvents } from '../../hooks/useEvents'
 import type { Event } from '../../types'
 
 const sorts = {
-  ascending: (a: Event, b: Event) => (a.startsAt < b.startsAt ? -1 : 1),
-  descending: (a: Event, b: Event) => (a.startsAt > b.startsAt ? -1 : 1),
+  asc: (a: Event, b: Event) => (a.startsAt < b.startsAt ? -1 : 1),
+  desc: (a: Event, b: Event) => (a.startsAt > b.startsAt ? -1 : 1),
 }
 
 const filters = {
   future: (event: Event) => isAfter(new Date(event.startsAt), new Date()),
   past: (event: Event) => isBefore(new Date(event.startsAt), new Date()),
+}
+
+const { ALL, FUTURE, PAST } = FilterType
+
+const listBuilders = {
+  [ALL]: (events: Event[]) => [...events].sort(sorts.asc),
+  [FUTURE]: (events: Event[]) => events.filter(filters.future).sort(sorts.asc),
+  [PAST]: (events: Event[]) => events.filter(filters.past).sort(sorts.desc),
 }
 
 /**
@@ -29,16 +37,7 @@ export const EventsList: FC = () => {
   const [filter, setFilter] = useState<FilterType>(FilterType.ALL)
 
   const { data, isLoading } = useEvents()
-
-  const events = useMemo(() => {
-    if (filter === FilterType.ALL) {
-      return [...data].sort(sorts.ascending)
-    } else if (filter === FilterType.FUTURE) {
-      return data.filter(filters.future).sort(sorts.ascending)
-    } else {
-      return data.filter(filters.past).sort(sorts.descending)
-    }
-  }, [data, filter])
+  const events = useMemo(() => listBuilders[filter](data), [data, filter])
 
   return (
     <>
