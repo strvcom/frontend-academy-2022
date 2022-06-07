@@ -7,8 +7,14 @@ import { NavigationView } from './parts/NavigationView'
 import { List, Nav } from './styled'
 import { ViewType } from './types'
 
+import { useEvents } from '../../hooks/useEvents'
+
+/**
+ * Renders a list of events, with filtering/sorting/view type options.
+ */
 export const EventsList: FC = () => {
   const [view, setView] = useState<ViewType>(ViewType.GRID)
+  const { data: events, isLoading } = useEvents()
 
   return (
     <>
@@ -17,47 +23,17 @@ export const EventsList: FC = () => {
         <NavigationView activeView={view} onChange={setView} />
       </Nav>
 
-      <List view={view}>
-        <li>
-          <EventItem isRow={view === ViewType.LIST} />
-        </li>
-
-        <li>
-          <EventItem isRow={view === ViewType.LIST} />
-        </li>
-
-        <li>
-          <EventItem isRow={view === ViewType.LIST} />
-        </li>
-
-        <li>
-          <EventItem isRow={view === ViewType.LIST} />
-        </li>
-
-        <li>
-          <EventItem isRow={view === ViewType.LIST} />
-        </li>
-
-        <li>
-          <EventItem isRow={view === ViewType.LIST} />
-        </li>
-
-        <li>
-          <EventItem isRow={view === ViewType.LIST} />
-        </li>
-
-        <li>
-          <EventItem isRow={view === ViewType.LIST} />
-        </li>
-
-        <li>
-          <EventItem isRow={view === ViewType.LIST} />
-        </li>
-
-        <li>
-          <EventItem isRow={view === ViewType.LIST} />
-        </li>
-      </List>
+      {isLoading ? (
+        <div>Loading...</div>
+      ) : (
+        <List view={view}>
+          {events.map((event) => (
+            <li key={event.id}>
+              <EventItem event={event} isRow={view === ViewType.LIST} />
+            </li>
+          ))}
+        </List>
+      )}
     </>
   )
 }
