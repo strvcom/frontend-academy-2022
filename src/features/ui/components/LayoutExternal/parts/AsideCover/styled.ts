@@ -8,6 +8,7 @@ export const Aside = styled.aside`
   display: none;
 
   ${mq.medium} {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -22,6 +23,7 @@ export const Aside = styled.aside`
 `
 
 export const Figure = styled.figure`
+  position: relative;
   padding: 8rem clamp(2rem, 2.2vw, 4rem) 4rem;
 `
 

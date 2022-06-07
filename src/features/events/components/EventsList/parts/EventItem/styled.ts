@@ -18,6 +18,13 @@ export const Description = styled.p`
   margin: 3.2rem 0 4rem;
 `
 
+export const CountWrapper = styled.div`
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.8rem;
+  align-items: center;
+`
+
 export const Count = styled.p``
 
 export const EditButton = styled(Button).attrs({
