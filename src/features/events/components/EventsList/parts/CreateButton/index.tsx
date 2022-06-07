@@ -3,8 +3,12 @@ import type { FC } from 'react'
 
 import { Routes } from '~/features/core/constants/routes'
 
+import { CreateLink } from './styled'
+
 export const CreateButton: FC = () => (
-  <Link href={Routes.CREATE_EVENT}>
-    <a aria-label="Create Event">+</a>
+  // Unlike with a plain <a> element, we need to pass passHref prop
+  // to make sure Next.js adds the href attribute to our styled component
+  <Link href={Routes.CREATE_EVENT} passHref>
+    <CreateLink aria-label="Create Event">+</CreateLink>
   </Link>
 )

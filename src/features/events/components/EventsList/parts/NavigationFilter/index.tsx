@@ -1,5 +1,7 @@
 import type { FC } from 'react'
 
+import { List, ListItem, MobileToggleLabel } from './styled'
+
 enum FilterType {
   ALL = 'ALL',
   FUTURE = 'FUTURE',
@@ -11,21 +13,32 @@ type Props = {
 }
 
 export const NavigationFilter: FC<Props> = ({ onChange }) => (
-  <ul>
-    <li>
-      <button type="button" onClick={() => onChange(FilterType.ALL)}>
-        All Events
-      </button>
-    </li>
-    <li>
-      <button type="button" onClick={() => onChange(FilterType.FUTURE)}>
-        Future Events
-      </button>
-    </li>
-    <li>
-      <button type="button" onClick={() => onChange(FilterType.PAST)}>
-        Past Events
-      </button>
-    </li>
-  </ul>
+  <>
+    <List>
+      <ListItem isActive>
+        <button type="button" onClick={() => onChange(FilterType.ALL)}>
+          All Events
+        </button>
+      </ListItem>
+      <ListItem>
+        <button type="button" onClick={() => onChange(FilterType.FUTURE)}>
+          Future Events
+        </button>
+      </ListItem>
+      <ListItem>
+        <button type="button" onClick={() => onChange(FilterType.PAST)}>
+          Past Events
+        </button>
+      </ListItem>
+    </List>
+
+    <MobileToggleLabel>
+      <span>Show</span>
+      <select>
+        <option value={FilterType.ALL}>All Events</option>
+        <option value={FilterType.FUTURE}>Future Events</option>
+        <option value={FilterType.PAST}>Past Events</option>
+      </select>
+    </MobileToggleLabel>
+  </>
 )
