@@ -9,6 +9,12 @@ import { Nav, List, ListItem } from './styled'
 import { ViewType, FilterType } from './types'
 
 import { useEvents } from '../../hooks/useEvents'
+import type { Event } from '../../types'
+
+const sorts = {
+  ascending: (a: Event, b: Event) => (a.startsAt < b.startsAt ? -1 : 1),
+  descending: (a: Event, b: Event) => (a.startsAt > b.startsAt ? -1 : 1),
+}
 
 /**
  * Renders a list of events, with filtering/sorting/view type options.
@@ -21,15 +27,15 @@ export const EventsList: FC = () => {
 
   const events = useMemo(() => {
     if (filter === FilterType.ALL) {
-      return data.sort((a, b) => (a.startsAt < b.startsAt ? -1 : 1))
+      return [...data].sort(sorts.ascending)
     } else if (filter === FilterType.FUTURE) {
       return data
         .filter((event) => isAfter(new Date(event.startsAt), new Date()))
-        .sort((a, b) => (a.startsAt < b.startsAt ? -1 : 1))
+        .sort(sorts.ascending)
     } else {
       return data
         .filter((event) => isBefore(new Date(event.startsAt), new Date()))
-        .sort((a, b) => (a.startsAt > b.startsAt ? -1 : 1))
+        .sort(sorts.descending)
     }
   }, [data, filter])
 
