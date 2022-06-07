@@ -42,3 +42,7 @@ export const List = styled.ul<{ view: ViewType }>`
       }
     `}
 `
+
+export const ListItem = styled.li`
+  display: flex;
+`

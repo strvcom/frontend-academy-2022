@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { EventItem } from './parts/EventItem'
 import { NavigationFilter } from './parts/NavigationFilter'
 import { NavigationView } from './parts/NavigationView'
-import { List, Nav } from './styled'
+import { Nav, List, ListItem } from './styled'
 import { ViewType } from './types'
 
 import { useEvents } from '../../hooks/useEvents'
@@ -28,9 +28,9 @@ export const EventsList: FC = () => {
       ) : (
         <List view={view}>
           {events.map((event) => (
-            <li key={event.id}>
+            <ListItem key={event.id}>
               <EventItem event={event} isRow={view === ViewType.LIST} />
-            </li>
+            </ListItem>
           ))}
         </List>
       )}
