@@ -1,3 +1,4 @@
+import { format } from 'date-fns'
 import type { FC } from 'react'
 
 import { UserIcon } from './parts/UserIcon'
@@ -11,22 +12,34 @@ import {
   EditButton,
 } from './styled'
 
+import type { Event } from '../../../../types'
+
 type Props = {
-  isRow: boolean
+  event: Event
+  isRow?: boolean
 }
 
-export const EventItem: FC<Props> = ({ isRow }) => (
+/**
+ * Renders a single EventItem
+ */
+export const EventItem: FC<Props> = ({ event, isRow = false }) => (
   <Article isRow={isRow}>
-    <time>April 4, 2017 – 2:17 PM</time>
-    <Title>How to get angry</Title>
-    <Name>Tom Watts</Name>
-    <Description>I will show you how to get angry in a second</Description>
+    <time>{format(new Date(event.startsAt), 'LLLL d, y – p')}</time>
+    <Title>{event.title}</Title>
+    <Name>
+      {event.owner.firstName} {event.owner.lastName}
+    </Name>
+
+    <Description>{event.description}</Description>
+
     <CountWrapper>
       <UserIcon />
+
       <Count>
-        9 <span>of</span> 20
+        {event.attendees.length} <span>of</span> {event.capacity}
       </Count>
     </CountWrapper>
+
     <EditButton>Edit</EditButton>
   </Article>
 )
