@@ -21,18 +21,16 @@ export const Input: FC<Props> = ({ label, name, type, error, ...rest }) => {
 
   return (
     <InputWrapper>
-      {/*
-        By changing the value of key prop, we're making the component
-        remount, which also triggers an attached animation again.
-      */}
-      <Label hasError={Boolean(error)} key={error}>
+      <Label hasError={Boolean(error)}>
         <StyledInput
           placeholder={label}
           name={name}
           type={inputType}
           {...rest}
         />
+
         <LabelText>{label}</LabelText>
+
         {type === 'password' && (
           <PasswordToggle
             isActive={isPasswordShown}
