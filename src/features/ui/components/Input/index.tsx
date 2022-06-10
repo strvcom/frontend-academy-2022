@@ -6,13 +6,14 @@ import {
   InputWrapper,
   Label,
   LabelText,
+  ErrorMessage,
   PasswordToggle,
   StyledInput,
 } from './styled'
 
 type Props = InputHTMLAttributes<HTMLInputElement> & {
   label: string
-  error?: string
+  error?: string | null
 }
 
 export const Input: FC<Props> = ({ label, name, type, error, ...rest }) => {
@@ -40,6 +41,8 @@ export const Input: FC<Props> = ({ label, name, type, error, ...rest }) => {
             <EyeIcon />
           </PasswordToggle>
         )}
+
+        {error ? <ErrorMessage>{error}</ErrorMessage> : null}
       </Label>
     </InputWrapper>
   )
