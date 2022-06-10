@@ -79,6 +79,10 @@ export const Label = styled.label<{ hasError?: boolean }>`
     `}
 `
 
+export const ErrorMessage = styled.span`
+  color: ${colors.accent.destructive};
+`
+
 export const PasswordToggle = styled.button.attrs({ type: 'button' })<{
   isActive: boolean
 }>`
