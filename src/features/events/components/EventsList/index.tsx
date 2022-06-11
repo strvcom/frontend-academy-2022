@@ -7,14 +7,14 @@ import { Nav, List, ListItem } from './styled'
 import { ViewType } from './types'
 
 import { useDashboardContext } from '../../contexts/dashboard'
-import { useEventsContext } from '../../contexts/events'
+import { useEvents } from '../../hooks/useEvents'
 
 /**
  * Renders a list of events, with filtering/sorting/view type options.
  */
 export const EventsList: FC = () => {
   const { filter, setFilter, view, setView } = useDashboardContext()
-  const { events, isLoading, error } = useEventsContext()
+  const { events, isLoading, error } = useEvents(filter)
 
   // Avoid rendering UI if event loading failed.
   if (error) {

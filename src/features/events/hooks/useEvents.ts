@@ -1,5 +1,6 @@
 import { isAfter, isBefore } from 'date-fns'
-import { useEffect, useState, useMemo } from 'react'
+import { useMemo } from 'react'
+import { useQuery } from 'react-query'
 
 import { api } from '~/features/api'
 
@@ -29,44 +30,29 @@ const listBuilders = {
   [PAST]: (events: Event[]) => events.filter(filters.past).sort(sorts.desc),
 }
 
+const initialData: Event[] = []
+
 /**
  * Loads and filters/sorts the event list.
  */
 const useEvents = (filter: FilterType) => {
-  const [data, setData] = useState<Event[]>([])
-  const [isLoading, setIsLoading] = useState(true)
-  const [error, setError] = useState<Error | null>(null)
+  const result = useQuery<Event[], Error>('events', async () => {
+    const response = await api.get('/events')
+
+    if (!response.ok) {
+      throw new Error(`Failed to load events`)
+    }
+
+    return (await response.json()) as Event[]
+  })
+
+  const { data = initialData } = result
 
   // Process filtered/sorted events.
   const listBuilder = listBuilders[filter]
-  const list = useMemo(() => listBuilder(data), [data, listBuilder])
+  const events = useMemo(() => listBuilder(data), [data, listBuilder])
 
-  // Trigger the event loading.
-  useEffect(() => {
-    const loadEvents = async () => {
-      setIsLoading(true)
-      try {
-        const response = await api.get('/events')
-
-        // Fail if request was unsuccessful
-        if (!response.ok) {
-          throw new Error(`Failed to load events`)
-        }
-
-        const events = (await response.json()) as Event[]
-
-        setData(events)
-      } catch (error) {
-        setError(error as Error)
-      } finally {
-        setIsLoading(false)
-      }
-    }
-
-    void loadEvents()
-  }, [])
-
-  return { events: list, isLoading, error }
+  return { ...result, events }
 }
 
 export { useEvents }
