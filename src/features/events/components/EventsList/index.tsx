@@ -1,5 +1,4 @@
 import type { FC } from 'react'
-import { useState } from 'react'
 
 import { EventItem } from './parts/EventItem'
 import { NavigationFilter } from './parts/NavigationFilter'
@@ -7,16 +6,15 @@ import { NavigationView } from './parts/NavigationView'
 import { Nav, List, ListItem } from './styled'
 import { ViewType } from './types'
 
-import { useEvents, FilterType } from '../../hooks/useEvents'
+import { useDashboardContext } from '../../contexts/dashboard'
+import { useEventsContext } from '../../contexts/events'
 
 /**
  * Renders a list of events, with filtering/sorting/view type options.
  */
 export const EventsList: FC = () => {
-  const [view, setView] = useState<ViewType>(ViewType.GRID)
-  const [filter, setFilter] = useState<FilterType>(FilterType.ALL)
-
-  const { events, isLoading, error } = useEvents(filter)
+  const { filter, setFilter, view, setView } = useDashboardContext()
+  const { events, isLoading, error } = useEventsContext()
 
   // Avoid rendering UI if event loading failed.
   if (error) {
