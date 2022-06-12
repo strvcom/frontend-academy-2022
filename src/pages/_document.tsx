@@ -1,13 +1,9 @@
-import type { DocumentContext, DocumentInitialProps } from 'next/document'
-import NextDocument, { Html, Head, Main, NextScript } from 'next/document'
-import { ServerStyleSheet } from 'styled-components'
+/* eslint-disable @next/next/no-page-custom-font */
+import { Html, Head, Main, NextScript } from 'next/document'
 
-type TDocument = {
-  (): JSX.Element
-  getInitialProps: (ctx: DocumentContext) => Promise<DocumentInitialProps>
-}
+import { withServerSideStyles } from '~/features/ui/lib/withStyledComponents'
 
-const Document: TDocument = () => (
+const Document = () => (
   <Html>
     <Head>
       <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -24,29 +20,4 @@ const Document: TDocument = () => (
   </Html>
 )
 
-Document.getInitialProps = async (ctx) => {
-  const sheet = new ServerStyleSheet()
-  const originalRenderPage = ctx.renderPage
-
-  try {
-    ctx.renderPage = () =>
-      originalRenderPage({
-        enhanceApp: (App) => (props) => sheet.collectStyles(<App {...props} />),
-      })
-
-    const initialProps = await NextDocument.getInitialProps(ctx)
-    return {
-      ...initialProps,
-      styles: [
-        <>
-          {initialProps.styles}
-          {sheet.getStyleElement()}
-        </>,
-      ],
-    }
-  } finally {
-    sheet.seal()
-  }
-}
-
-export default Document
+export default withServerSideStyles(Document)
