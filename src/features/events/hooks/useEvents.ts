@@ -35,6 +35,7 @@ const listBuilders = {
 const useEvents = (filter: FilterType) => {
   const [data, setData] = useState<Event[]>([])
   const [isLoading, setIsLoading] = useState(true)
+  const [error, setError] = useState<Error | null>(null)
 
   // Process filtered/sorted events.
   const listBuilder = listBuilders[filter]
@@ -44,18 +45,28 @@ const useEvents = (filter: FilterType) => {
   useEffect(() => {
     const loadEvents = async () => {
       setIsLoading(true)
+      try {
+        const response = await api.get('/events')
 
-      const response = await api.get('/events')
-      const events = (await response.json()) as Event[]
+        // Fail if request was unsuccessful
+        if (!response.ok) {
+          throw new Error(`Failed to load events`)
+        }
 
-      setData(events)
-      setIsLoading(false)
+        const events = (await response.json()) as Event[]
+
+        setData(events)
+      } catch (error) {
+        setError(error as Error)
+      } finally {
+        setIsLoading(false)
+      }
     }
 
     void loadEvents()
   }, [])
 
-  return { events: list, isLoading }
+  return { events: list, isLoading, error }
 }
 
 export { useEvents }

@@ -16,7 +16,12 @@ export const EventsList: FC = () => {
   const [view, setView] = useState<ViewType>(ViewType.GRID)
   const [filter, setFilter] = useState<FilterType>(FilterType.ALL)
 
-  const { events, isLoading } = useEvents(filter)
+  const { events, isLoading, error } = useEvents(filter)
+
+  // Avoid rendering UI if event loading failed.
+  if (error) {
+    throw error
+  }
 
   return (
     <>
