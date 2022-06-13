@@ -1,7 +1,8 @@
 import { isAfter, isBefore } from 'date-fns'
 import { useEffect, useState, useMemo } from 'react'
 
-import events from '../mocks/events.json'
+import { api } from '~/features/api'
+
 import type { Event } from '../types'
 
 export enum FilterType {
@@ -41,13 +42,17 @@ const useEvents = (filter: FilterType) => {
 
   // Trigger the event loading.
   useEffect(() => {
-    setIsLoading(true)
+    const loadEvents = async () => {
+      setIsLoading(true)
 
-    // Simulates the time to load events from the backend.
-    setTimeout(() => {
-      setIsLoading(false)
+      const response = await api.get('/events')
+      const events = (await response.json()) as Event[]
+
       setData(events)
-    }, 500)
+      setIsLoading(false)
+    }
+
+    void loadEvents()
   }, [])
 
   return { events: list, isLoading }
