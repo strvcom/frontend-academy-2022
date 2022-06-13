@@ -3,7 +3,8 @@ import { QueryClient, QueryClientProvider } from 'react-query'
 import { ReactQueryDevtools } from 'react-query/devtools'
 
 import { HeadDefault } from '~/features/core/components/HeadDefault'
-import { DashboardContextProvider } from '~/features/events/contexts/dashboard'
+import { EventFilterContextProvider } from '~/features/events/contexts/event-filter'
+import { EventViewContextProvider } from '~/features/events/contexts/event-view'
 import { GlobalStyle } from '~/features/ui/theme/global'
 
 const queryClient = new QueryClient()
@@ -14,9 +15,11 @@ function MyApp({ Component, pageProps }: AppProps) {
       <GlobalStyle />
       <HeadDefault />
       <QueryClientProvider client={queryClient}>
-        <DashboardContextProvider>
-          <Component {...pageProps} />
-        </DashboardContextProvider>
+        <EventFilterContextProvider>
+          <EventViewContextProvider>
+            <Component {...pageProps} />
+          </EventViewContextProvider>
+        </EventFilterContextProvider>
         <ReactQueryDevtools />
       </QueryClientProvider>
     </>

@@ -4,7 +4,7 @@ import { GridIcon } from './parts/GridIcon'
 import { ListIcon } from './parts/ListIcon'
 import { ListItem } from './styled'
 
-import { ViewType } from '../../types'
+import { ViewType } from '../../../../contexts/event-view'
 
 type Props = {
   activeView: ViewType

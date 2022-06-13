@@ -4,7 +4,7 @@ import { colors } from '~/features/ui/theme/colors'
 import { mq } from '~/features/ui/theme/mq'
 import { typography } from '~/features/ui/theme/typography'
 
-import { ViewType } from './types'
+import { ViewType } from '../../contexts/event-view'
 
 export const Nav = styled.nav`
   display: flex;

@@ -4,13 +4,8 @@ import { useQuery } from 'react-query'
 
 import { api } from '~/features/api'
 
+import { FilterType } from '../contexts/event-filter'
 import type { Event } from '../types'
-
-export enum FilterType {
-  ALL = 'ALL',
-  FUTURE = 'FUTURE',
-  PAST = 'PAST',
-}
 
 const sorts = {
   asc: (a: Event, b: Event) => (a.startsAt < b.startsAt ? -1 : 1),
