@@ -2,7 +2,7 @@ import type { FC } from 'react'
 
 import { List, ListItem, MobileToggleLabel } from './styled'
 
-import { FilterType } from '../../types'
+import { FilterType } from '../../../../hooks/useEvents'
 
 type Props = {
   activeFilter: FilterType
