@@ -1,6 +1,9 @@
 import Head from 'next/head'
 import type { FC } from 'react'
 
+const baseUrl =
+  process.env.NEXT_PUBLIC_DEPLOYMENT_URL ?? 'http://localhost:3000'
+
 export const HeadDefault: FC = () => (
   <Head>
     <meta charSet="UTF-8" />
@@ -19,10 +22,7 @@ export const HeadDefault: FC = () => (
     <meta name="theme-color" content="F9F9FB" />
     <meta property="og:title" content="Eventio" />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://www.absolute.url" />
-    <meta
-      property="og:image"
-      content="https://www.absolute.url/share-banner.png"
-    />
+    <meta property="og:url" content={baseUrl} />
+    <meta property="og:image" content={`${baseUrl}/share-banner.png`} />
   </Head>
 )
