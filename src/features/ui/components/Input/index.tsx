@@ -6,13 +6,14 @@ import {
   InputWrapper,
   Label,
   LabelText,
+  ErrorMessage,
   PasswordToggle,
   StyledInput,
 } from './styled'
 
 type Props = InputHTMLAttributes<HTMLInputElement> & {
   label: string
-  error?: string
+  error?: string | null
 }
 
 export const Input: FC<Props> = ({ label, name, type, error, ...rest }) => {
@@ -21,18 +22,16 @@ export const Input: FC<Props> = ({ label, name, type, error, ...rest }) => {
 
   return (
     <InputWrapper>
-      {/*
-        By changing the value of key prop, we're making the component
-        remount, which also triggers an attached animation again.
-      */}
-      <Label hasError={Boolean(error)} key={error}>
+      <Label hasError={Boolean(error)}>
         <StyledInput
           placeholder={label}
           name={name}
           type={inputType}
           {...rest}
         />
+
         <LabelText>{label}</LabelText>
+
         {type === 'password' && (
           <PasswordToggle
             isActive={isPasswordShown}
@@ -42,6 +41,8 @@ export const Input: FC<Props> = ({ label, name, type, error, ...rest }) => {
             <EyeIcon />
           </PasswordToggle>
         )}
+
+        {error ? <ErrorMessage>{error}</ErrorMessage> : null}
       </Label>
     </InputWrapper>
   )
