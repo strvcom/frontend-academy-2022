@@ -1,12 +1,18 @@
+type NetworkProviderContext = {
+  client: NetworkProvider
+}
+
 type BeforeRequestInterceptor = (
   request: Request,
-  options: NetworkProviderOptions
+  options: NetworkProviderOptions,
+  context: NetworkProviderContext
 ) => Request
 
 type AfterRequestInterceptor = (
   request: Request,
   options: NetworkProviderOptions,
-  response: Response
+  response: Response,
+  context: NetworkProviderContext
 ) => Response
 
 type NetworkProviderInterceptors = {
@@ -178,7 +184,8 @@ class NetworkProvider {
     // Run before request middleware
     if (interceptors?.beforeRequest?.length) {
       request = interceptors.beforeRequest.reduce(
-        (request, interceptor) => interceptor(request, options),
+        (request, interceptor) =>
+          interceptor(request, options, { client: this }),
         request
       )
     }
@@ -189,7 +196,8 @@ class NetworkProvider {
     // Run after request middleware
     if (interceptors?.afterRequest?.length) {
       response = interceptors.afterRequest.reduce(
-        (response, interceptor) => interceptor(request, options, response),
+        (response, interceptor) =>
+          interceptor(request, options, response, { client: this }),
         response
       )
     }
