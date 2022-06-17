@@ -131,7 +131,32 @@ class NetworkProvider {
     })
   }
 
-  private async makeRequest(url: string, options: NetworkProviderOptions) {
+  async put(url: string, options?: NetworkProviderOptions) {
+    return await this.makeRequest(url, {
+      ...NetworkProvider.mergeOptions(this.options, options),
+      method: 'PUT',
+    })
+  }
+
+  async patch(url: string, options?: NetworkProviderOptions) {
+    return await this.makeRequest(url, {
+      ...NetworkProvider.mergeOptions(this.options, options),
+      method: 'PATCH',
+    })
+  }
+
+  async delete(url: string, options?: NetworkProviderOptions) {
+    return await this.makeRequest(url, {
+      ...NetworkProvider.mergeOptions(this.options, options),
+      method: 'DELETE',
+    })
+  }
+
+  /**
+   * Send arbitrary request
+   * Use this only for requests with unknown method
+   */
+  async makeRequest(url: string, options: NetworkProviderOptions) {
     const { baseUrl, interceptors, ...requestOptions } =
       NetworkProvider.normalizeOptions(options)
 
