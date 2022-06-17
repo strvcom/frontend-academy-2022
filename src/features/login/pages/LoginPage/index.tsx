@@ -93,6 +93,7 @@ export const LoginPage: NextPage = () => {
               label="Email"
               type="email"
               error={errors?.email?.message}
+              autoComplete="username"
               {...register('email')}
             />
 
@@ -100,6 +101,7 @@ export const LoginPage: NextPage = () => {
               label="Password"
               type="password"
               error={errors?.password?.message}
+              autoComplete="current-password"
               {...register('password')}
             />
             <p>
