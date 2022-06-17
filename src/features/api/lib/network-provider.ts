@@ -6,14 +6,14 @@ type BeforeRequestInterceptor = (
   request: Request,
   options: NetworkProviderOptions,
   context: NetworkProviderContext
-) => Request
+) => Request | Promise<Request>
 
 type AfterRequestInterceptor = (
   request: Request,
   options: NetworkProviderOptions,
   response: Response,
   context: NetworkProviderContext
-) => Response
+) => Response | Promise<Response>
 
 type NetworkProviderInterceptors = {
   /**
@@ -183,26 +183,28 @@ class NetworkProvider {
 
     // Run before request middleware
     if (interceptors?.beforeRequest?.length) {
-      request = interceptors.beforeRequest.reduce(
-        (request, interceptor) =>
-          interceptor(request, options, { client: this }),
-        request
+      request = await interceptors.beforeRequest.reduce(
+        async (request, interceptor) =>
+          await interceptor(await request, options, { client: this }),
+        Promise.resolve(request)
       )
     }
 
     // Make request
-    let response = await fetch(request)
+    let responsePromise = fetch(request)
 
     // Run after request middleware
     if (interceptors?.afterRequest?.length) {
-      response = interceptors.afterRequest.reduce(
-        (response, interceptor) =>
-          interceptor(request, options, response, { client: this }),
-        response
+      responsePromise = interceptors.afterRequest.reduce(
+        async (responsePromise, interceptor) =>
+          await interceptor(request, options, await responsePromise, {
+            client: this,
+          }),
+        responsePromise
       )
     }
 
-    return response
+    return await responsePromise
   }
 }
 
