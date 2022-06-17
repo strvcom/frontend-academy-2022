@@ -16,11 +16,6 @@ import {
   ErrorMessage,
 } from './styled'
 
-type FormInputs = {
-  email: string
-  password: number
-}
-
 // Validation messages are optional
 // yup already have some predefined validation messages
 // See more: https://github.com/jquense/yup/blob/a8febddcfbe42358e63194ae8da582e66b746edf/src/locale.ts
@@ -37,6 +32,8 @@ const schema = yup
       .required('Password is a required field'),
   })
   .required()
+
+type FormInputs = yup.InferType<typeof schema>
 
 export const LoginPage: NextPage = () => {
   const [submitError, setSubmitError] = useState<string | null>(null)
