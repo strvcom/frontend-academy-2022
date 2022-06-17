@@ -1,6 +1,8 @@
+import { yupResolver } from '@hookform/resolvers/yup'
 import type { NextPage } from 'next'
-import type { FormEvent } from 'react'
-import { useState, useCallback } from 'react'
+import { useCallback, useState } from 'react'
+import { useForm } from 'react-hook-form'
+import * as yup from 'yup'
 
 import { Container } from '~/features/ui/components/Container'
 import { Input } from '~/features/ui/components/Input'
@@ -14,69 +16,53 @@ import {
   ErrorMessage,
 } from './styled'
 
-const validators = {
-  email: (value: string) => {
-    if (typeof value !== 'string') return 'Invalid e-mail value type'
-    if (!value) return 'E-mail is required'
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/u.test(value)) return 'Invalid e-mail'
-  },
-
-  password: (value: string) => {
-    if (typeof value !== 'string') return 'Invalid password value type'
-    if (!value) return 'Password is required'
-  },
+type FormInputs = {
+  email: string
+  password: number
 }
 
-export const LoginPage: NextPage = () => {
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
+const schema = yup
+  .object({
+    email: yup.string().email().required(),
+    password: yup.string().min(8).max(16).required(),
+  })
+  .required()
 
-  const [emailError, setEmailError] = useState<string | null>(null)
-  const [passwordError, setPasswordError] = useState<string | null>(null)
+export const LoginPage: NextPage = () => {
   const [submitError, setSubmitError] = useState<string | null>(null)
 
   const [isSubmitting, setIsSubmitting] = useState(false)
 
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<FormInputs>({
+    resolver: yupResolver(schema),
+  })
+
   /**
    * Login handler.
    */
-  const login = useCallback(
-    (e: FormEvent<HTMLFormElement>) => {
-      e.preventDefault()
+  const login = useCallback((data: FormInputs) => {
+    // Temporarily show submitted data in the console
+    console.log({ data })
 
-      const errors = {
-        email: validators.email(email),
-        password: validators.password(password),
+    setIsSubmitting(true)
+
+    setTimeout(() => {
+      // Mocking to represent login submit outcome.
+      const shouldFail = Math.random() < 0.5
+
+      if (shouldFail) {
+        setSubmitError('Something went terribly wrong!')
+      } else {
+        alert('Success!')
       }
 
-      if (errors.email) {
-        setEmailError(errors.email)
-      }
-
-      if (errors.password) {
-        setPasswordError(errors.password)
-      }
-
-      // Only submit in case of no errors.
-      if (!errors.email && !errors.password) {
-        setIsSubmitting(true)
-
-        setTimeout(() => {
-          // Mocking to represent login submit outcome.
-          const shouldFail = Math.random() < 0.5
-
-          if (shouldFail) {
-            setSubmitError('Something went terribly wrong!')
-          } else {
-            alert('Success!')
-          }
-
-          setIsSubmitting(false)
-        }, 1000)
-      }
-    },
-    [email, password]
-  )
+      setIsSubmitting(false)
+    }, 1000)
+  }, [])
 
   return (
     <LayoutExternal>
@@ -90,29 +76,24 @@ export const LoginPage: NextPage = () => {
             <Description>Enter your details below.</Description>
           )}
 
-          <form onSubmit={login}>
+          <form
+            // eslint-disable-next-line @typescript-eslint/no-misused-promises
+            onSubmit={handleSubmit(login)}
+            // Disable native form validation
+            noValidate
+          >
             <Input
               label="Email"
               type="email"
-              name="email"
-              value={email}
-              error={emailError}
-              onChange={(e) => {
-                setEmailError(null)
-                setEmail(e.target.value)
-              }}
+              error={errors?.email?.message}
+              {...register('email')}
             />
 
             <Input
               label="Password"
               type="password"
-              name="password"
-              value={password}
-              error={passwordError}
-              onChange={(e) => {
-                setPasswordError(null)
-                setPassword(e.target.value)
-              }}
+              error={errors?.password?.message}
+              {...register('password')}
             />
             <p>
               <SubmitButton disabled={isSubmitting}>
