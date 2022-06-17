@@ -69,14 +69,45 @@ class NetworkProvider {
     return options
   }
 
+  static mergeHeaders(...sources: HeadersInit[]) {
+    const result: Record<string, string> = {}
+
+    for (const source of sources) {
+      const headers: Headers = new Headers(source)
+      let header = headers.entries().next()
+      while (!header.done) {
+        result[header.value[0]] = header.value[1]
+        header = headers.entries().next()
+      }
+    }
+
+    return new Headers(result)
+  }
+
   static mergeOptions(
     options: NetworkProviderOptions,
     newOptions?: NetworkProviderOptions
   ) {
-    // This will override headers and interceptors, instead of joining them
+    const headers = NetworkProvider.mergeHeaders(
+      options.headers ?? {},
+      newOptions?.headers ?? {}
+    )
+    const beforeRequest = [
+      ...(options.interceptors?.beforeRequest ?? []),
+      ...(newOptions?.interceptors?.beforeRequest ?? []),
+    ]
+    const afterRequest = [
+      ...(options.interceptors?.afterRequest ?? []),
+      ...(newOptions?.interceptors?.afterRequest ?? []),
+    ]
     return {
       ...options,
       ...newOptions,
+      headers,
+      interceptors: {
+        beforeRequest,
+        afterRequest,
+      },
     }
   }
 
