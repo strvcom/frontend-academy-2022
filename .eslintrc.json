@@ -12,6 +12,12 @@
 
   "rules": {
     "react/require-default-props": [0],
-    "import/extensions": [2, { "json": "always" }]
+    "import/extensions": [2, { "json": "always" }],
+    "@typescript-eslint/no-misused-promises": [
+      "error",
+      {
+        "checksVoidReturn": { "attributes": false }
+      }
+    ]
   }
 }

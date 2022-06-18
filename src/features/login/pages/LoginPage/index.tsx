@@ -84,7 +84,6 @@ export const LoginPage: NextPage = () => {
           )}
 
           <form
-            // eslint-disable-next-line @typescript-eslint/no-misused-promises
             onSubmit={handleSubmit(login)}
             // Disable native form validation
             noValidate
