@@ -9,7 +9,7 @@ import { LayoutInternal } from '~/features/ui/components/LayoutInternal'
 import {
   CloseLink,
   Container,
-  Desctiption,
+  Description,
   FormWrapper,
   StyledCloseIcon,
   SubmitButton,
@@ -36,7 +36,7 @@ export const CreateEventPage: NextPage = () => {
       <Container>
         <FormWrapper>
           <Title>Create new event</Title>
-          <Desctiption>Enter details below.</Desctiption>
+          <Description>Enter details below.</Description>
           <form onSubmit={onSubmit}>
             <Input label="Title" type="text" name="title" />
             <Input label="Description" type="text" name="description" />

@@ -31,7 +31,7 @@ export const Title = styled.h1`
   ${typography.heading.h2}
 `
 
-export const Desctiption = styled.p`
+export const Description = styled.p`
   ${typography.paragraph.large}
 `
 
