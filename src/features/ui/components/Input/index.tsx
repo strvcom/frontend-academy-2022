@@ -1,5 +1,7 @@
 import type { FC, InputHTMLAttributes } from 'react'
-import { forwardRef, useState } from 'react'
+import { forwardRef } from 'react'
+
+import { useToggle } from '~/utils/hooks/useToggle'
 
 import { EyeIcon } from './parts/EyeIcon'
 import {
@@ -18,7 +20,7 @@ type Props = InputHTMLAttributes<HTMLInputElement> & {
 
 export const Input: FC<Props> = forwardRef<HTMLInputElement, Props>(
   ({ label, name, type, error, ...rest }, ref) => {
-    const [isPasswordShown, togglePassword] = useState(false)
+    const [isPasswordShown, togglePasswordShown] = useToggle(false)
     const inputType = isPasswordShown ? 'text' : type
 
     return (
@@ -37,7 +39,7 @@ export const Input: FC<Props> = forwardRef<HTMLInputElement, Props>(
           {type === 'password' && (
             <PasswordToggle
               isActive={isPasswordShown}
-              onClick={() => togglePassword(!isPasswordShown)}
+              onClick={togglePasswordShown}
               aria-label="Display password text"
             >
               <EyeIcon />
