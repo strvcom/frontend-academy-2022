@@ -8,7 +8,6 @@ import {
   getPersistedUser,
   removeAccessToken,
   removePersistedUser,
-  removeRefreshToken,
 } from '~/features/auth/storage'
 import { ApiRoutes } from '~/features/core/constants/routes'
 
@@ -41,7 +40,6 @@ export const UserContextProvider: FC<{ children: ReactNode }> = ({
   const handleLogout = useCallback(() => {
     setUser(null)
     removePersistedUser()
-    removeRefreshToken()
     removeAccessToken()
     void apiInternal.post(ApiRoutes.LOGOUT)
   }, [])

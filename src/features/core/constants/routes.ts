@@ -7,4 +7,5 @@ export enum Routes {
 export enum ApiRoutes {
   LOGIN = '/api/login',
   LOGOUT = '/api/logout',
+  REFRESH_TOKEN = '/api/refreshToken',
 }
