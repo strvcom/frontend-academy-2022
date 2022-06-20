@@ -27,7 +27,7 @@ const schema = yup
       .required('Email is a required field'),
     password: yup
       .string()
-      .min(8, 'Password must be at least 8 characters')
+      .min(6, 'Password must be at least 6 characters')
       .max(16, 'Password must be at most 16 characters')
       .required('Password is a required field'),
   })
