@@ -1,4 +1,9 @@
-import type { BeforeRequestInterceptor } from './network-provider'
+import { setAccessToken, setRefreshToken } from '~/features/auth/storage'
+
+import type {
+  AfterRequestInterceptor,
+  BeforeRequestInterceptor,
+} from './network-provider'
 import { NetworkProvider } from './network-provider'
 
 const apiUrl = process.env.NEXT_PUBLIC_API_URL
@@ -14,6 +19,18 @@ if (!apiKey) {
   throw new Error('Missing NEXT_PUBLIC_API_KEY environment variable')
 }
 
+const persistTokens: AfterRequestInterceptor = (
+  _request,
+  _options,
+  response
+) => {
+  const accessToken = response.headers.get('Authorization')
+  const refreshToken = response.headers.get('Refresh-Token')
+  if (accessToken) setAccessToken(accessToken)
+  if (refreshToken) setRefreshToken(refreshToken)
+  return response
+}
+
 /**
  * Before request hook to append API Key header on all requests.
  */
@@ -26,6 +43,7 @@ const api = new NetworkProvider({
   baseUrl: apiUrl,
   interceptors: {
     beforeRequest: [appendAPIKey],
+    afterRequest: [persistTokens],
   },
 })
 
