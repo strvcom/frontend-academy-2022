@@ -1,8 +1,5 @@
-import { yupResolver } from '@hookform/resolvers/yup'
 import type { NextPage } from 'next'
-import { useCallback, useState } from 'react'
-import { useForm } from 'react-hook-form'
-import * as yup from 'yup'
+import { useState } from 'react'
 
 import { Container } from '~/features/ui/components/Container'
 import { Input } from '~/features/ui/components/Input'
@@ -16,46 +13,18 @@ import {
   ErrorMessage,
 } from './styled'
 
-// Validation messages are optional
-// yup already have some predefined validation messages
-// See more: https://github.com/jquense/yup/blob/a8febddcfbe42358e63194ae8da582e66b746edf/src/locale.ts
-const schema = yup
-  .object({
-    email: yup
-      .string()
-      .email('Email must be a valid email')
-      .required('Email is a required field'),
-    password: yup
-      .string()
-      .min(6, 'Password must be at least 6 characters')
-      .max(16, 'Password must be at most 16 characters')
-      .required('Password is a required field'),
-  })
-  .required()
-
-type FormInputs = yup.InferType<typeof schema>
+import { useLoginForm } from '../../lib/login-form'
 
 export const LoginPage: NextPage = () => {
+  const form = useLoginForm()
   const [submitError, setSubmitError] = useState<string | null>(null)
-
-  const [isSubmitting, setIsSubmitting] = useState(false)
-
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<FormInputs>({
-    resolver: yupResolver(schema),
-  })
 
   /**
    * Login handler.
    */
-  const login = useCallback((data: FormInputs) => {
+  const handleSubmit = form.handleSubmit((values) => {
     // Temporarily show submitted data in the console
-    console.log({ data })
-
-    setIsSubmitting(true)
+    console.log({ values })
 
     setTimeout(() => {
       // Mocking to represent login submit outcome.
@@ -66,10 +35,8 @@ export const LoginPage: NextPage = () => {
       } else {
         alert('Success!')
       }
-
-      setIsSubmitting(false)
     }, 1000)
-  }, [])
+  })
 
   return (
     <LayoutExternal>
@@ -84,28 +51,28 @@ export const LoginPage: NextPage = () => {
           )}
 
           <form
-            onSubmit={handleSubmit(login)}
             // Disable native form validation
             noValidate
+            onSubmit={handleSubmit}
           >
             <Input
               label="Email"
               type="email"
-              error={errors?.email?.message}
+              error={form.formState.errors.email?.message}
               autoComplete="username"
-              {...register('email')}
+              {...form.register('email')}
             />
 
             <Input
               label="Password"
               type="password"
-              error={errors?.password?.message}
+              error={form.formState.errors.password?.message}
               autoComplete="current-password"
-              {...register('password')}
+              {...form.register('password')}
             />
             <p>
-              <SubmitButton disabled={isSubmitting}>
-                {isSubmitting ? 'Submitting' : 'Sign In'}
+              <SubmitButton disabled={form.formState.isSubmitting}>
+                {form.formState.isSubmitting ? 'Submitting' : 'Sign In'}
               </SubmitButton>
             </p>
           </form>
