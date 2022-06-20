@@ -1,7 +1,8 @@
 import type { NextPage } from 'next'
 import { useRouter } from 'next/router'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
+import { useUserContext } from '~/features/auth/contexts/userContext'
 import { useLogin } from '~/features/auth/hooks/useLogin'
 import { Container } from '~/features/ui/components/Container'
 import { Input } from '~/features/ui/components/Input'
@@ -22,6 +23,13 @@ export const LoginPage: NextPage = () => {
   const { mutate } = useLogin()
   const form = useLoginForm()
   const [submitError, setSubmitError] = useState<string | null>(null)
+  const { handleLogout } = useUserContext()
+
+  useEffect(() => {
+    if (router.query?.from === 'unauthorized') {
+      handleLogout()
+    }
+  }, [handleLogout, router.query?.from])
 
   /**
    * Login handler.
