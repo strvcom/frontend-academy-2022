@@ -1,20 +1,16 @@
 import { useMutation } from 'react-query'
 
 import { api } from '~/features/api'
+import type { UserType } from '~/features/auth/contexts/userContext'
+import { useUserContext } from '~/features/auth/contexts/userContext'
 
 type LoginInput = {
   email: string
   password: string
 }
 
-type UserType = {
-  id: string
-  firstName: string
-  lastName: string
-  email: string
-}
-
 export const useLogin = () => {
+  const { setUser } = useUserContext()
   const result = useMutation<UserType, Error, LoginInput>(
     'login',
     async (credentials) => {
@@ -25,6 +21,7 @@ export const useLogin = () => {
       }
 
       const user = (await response.json()) as UserType
+      setUser(user)
       return user
     }
   )
