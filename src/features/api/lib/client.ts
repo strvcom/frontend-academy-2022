@@ -1,4 +1,4 @@
-import { setAccessToken, setRefreshToken } from '~/features/auth/storage'
+import { setAccessToken } from '~/features/auth/storage'
 
 import type {
   AfterRequestInterceptor,
@@ -25,9 +25,7 @@ const persistTokens: AfterRequestInterceptor = (
   response
 ) => {
   const accessToken = response.headers.get('Authorization')
-  const refreshToken = response.headers.get('Refresh-Token')
   if (accessToken) setAccessToken(accessToken)
-  if (refreshToken) setRefreshToken(refreshToken)
   return response
 }
 
