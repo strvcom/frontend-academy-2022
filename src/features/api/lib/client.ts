@@ -39,7 +39,7 @@ const appendAPIKey: BeforeRequestInterceptor = (request) => {
   return request
 }
 
-const api = new NetworkProvider({
+export const api = new NetworkProvider({
   baseUrl: apiUrl,
   interceptors: {
     beforeRequest: [appendAPIKey],
@@ -47,4 +47,15 @@ const api = new NetworkProvider({
   },
 })
 
-export { api }
+export const apiInternal = new NetworkProvider({
+  interceptors: {
+    afterRequest: [persistTokens],
+  },
+})
+
+export const apiSSR = new NetworkProvider({
+  baseUrl: apiUrl,
+  interceptors: {
+    beforeRequest: [appendAPIKey],
+  },
+})

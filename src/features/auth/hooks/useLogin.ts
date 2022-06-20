@@ -1,11 +1,12 @@
 import { useMutation } from 'react-query'
 
-import { api } from '~/features/api'
+import { apiInternal } from '~/features/api/lib/client'
 import type { UserType } from '~/features/auth/contexts/userContext'
 import { useUserContext } from '~/features/auth/contexts/userContext'
 import { setPersistedUser } from '~/features/auth/storage'
+import { ApiRoutes } from '~/features/core/constants/routes'
 
-type LoginInput = {
+export type LoginInput = {
   email: string
   password: string
 }
@@ -15,7 +16,9 @@ export const useLogin = () => {
   const result = useMutation<UserType, Error, LoginInput>(
     'login',
     async (credentials) => {
-      const response = await api.post('/auth/native', { json: credentials })
+      const response = await apiInternal.post(ApiRoutes.LOGIN, {
+        json: credentials,
+      })
 
       if (!response.ok) {
         throw new Error('Login Failed')
