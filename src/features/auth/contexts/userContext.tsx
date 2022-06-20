@@ -3,12 +3,14 @@ import { useEffect } from 'react'
 import { useMemo, useCallback } from 'react'
 import React, { createContext, useState, useContext } from 'react'
 
+import { apiInternal } from '~/features/api/lib/client'
 import {
   getPersistedUser,
   removeAccessToken,
   removePersistedUser,
   removeRefreshToken,
 } from '~/features/auth/storage'
+import { ApiRoutes } from '~/features/core/constants/routes'
 
 export type UserType = {
   id: string
@@ -41,6 +43,7 @@ export const UserContextProvider: FC<{ children: ReactNode }> = ({
     removePersistedUser()
     removeRefreshToken()
     removeAccessToken()
+    void apiInternal.post(ApiRoutes.LOGOUT)
   }, [])
 
   const value = useMemo(
