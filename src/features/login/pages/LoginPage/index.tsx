@@ -1,6 +1,8 @@
 import type { NextPage } from 'next'
+import { useRouter } from 'next/router'
 import { useState } from 'react'
 
+import { useLogin } from '~/features/auth/hooks/useLogin'
 import { Container } from '~/features/ui/components/Container'
 import { Input } from '~/features/ui/components/Input'
 import { LayoutExternal } from '~/features/ui/components/LayoutExternal'
@@ -16,6 +18,8 @@ import {
 import { useLoginForm } from '../../lib/login-form'
 
 export const LoginPage: NextPage = () => {
+  const router = useRouter()
+  const { mutate } = useLogin()
   const form = useLoginForm()
   const [submitError, setSubmitError] = useState<string | null>(null)
 
@@ -23,19 +27,10 @@ export const LoginPage: NextPage = () => {
    * Login handler.
    */
   const handleSubmit = form.handleSubmit((values) => {
-    // Temporarily show submitted data in the console
-    console.log({ values })
-
-    setTimeout(() => {
-      // Mocking to represent login submit outcome.
-      const shouldFail = Math.random() < 0.5
-
-      if (shouldFail) {
-        setSubmitError('Something went terribly wrong!')
-      } else {
-        alert('Success!')
-      }
-    }, 1000)
+    mutate(values, {
+      onSuccess: () => void router.push('/'),
+      onError: (error) => setSubmitError(error.message),
+    })
   })
 
   return (
