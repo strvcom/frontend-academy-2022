@@ -2,6 +2,7 @@ import { set as setTime } from 'date-fns'
 import type { NextPage } from 'next'
 import Link from 'next/link'
 
+import { withPrivateRoute } from '~/features/auth/hocs/withPrivateRoute'
 import { Routes } from '~/features/core/constants/routes'
 import { useCreateEvent } from '~/features/events/hooks/useCreateEvent'
 import { Input } from '~/features/ui/components/Input'
@@ -19,7 +20,7 @@ import {
 
 import { useCreateEventForm, EVENT_MIN_DATE } from '../../lib/create-event-form'
 
-export const CreateEventPage: NextPage = () => {
+const Page: NextPage = () => {
   const form = useCreateEventForm()
   const { mutate } = useCreateEvent()
 
@@ -91,3 +92,5 @@ export const CreateEventPage: NextPage = () => {
     </LayoutInternal>
   )
 }
+
+export const CreateEventPage = withPrivateRoute(Page)
