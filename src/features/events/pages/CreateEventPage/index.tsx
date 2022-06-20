@@ -1,7 +1,9 @@
+import { set as setTime } from 'date-fns'
 import type { NextPage } from 'next'
 import Link from 'next/link'
 
 import { Routes } from '~/features/core/constants/routes'
+import { useCreateEvent } from '~/features/events/hooks/useCreateEvent'
 import { Input } from '~/features/ui/components/Input'
 import { LayoutInternal } from '~/features/ui/components/LayoutInternal'
 
@@ -19,15 +21,17 @@ import { useCreateEventForm, EVENT_MIN_DATE } from '../../lib/create-event-form'
 
 export const CreateEventPage: NextPage = () => {
   const form = useCreateEventForm()
+  const { mutate } = useCreateEvent()
 
   /**
    * Create event handler.
    */
-  const handleSubmit = form.handleSubmit((data) => {
-    // Temporarily show submitted data in the console
-    console.log({ data })
+  const handleSubmit = form.handleSubmit(({ date, time, ...rest }) => {
+    const [hours, minutes] = time.split(':').map(Number)
 
-    alert('TODO')
+    const startsAt = setTime(new Date(date), { hours, minutes }).toISOString()
+
+    mutate({ startsAt, ...rest })
   })
 
   return (
@@ -78,7 +82,9 @@ export const CreateEventPage: NextPage = () => {
               error={form.formState.errors.capacity?.message}
               {...form.register('capacity')}
             />
-            <SubmitButton accent="primary">Create New Event</SubmitButton>
+            <SubmitButton disabled={form.formState.isSubmitting}>
+              Create New Event
+            </SubmitButton>
           </form>
         </FormWrapper>
       </Container>
