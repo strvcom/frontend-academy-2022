@@ -1,6 +1,9 @@
 import type { FC, ReactNode } from 'react'
+import { useEffect } from 'react'
 import { useMemo, useCallback } from 'react'
 import React, { createContext, useState, useContext } from 'react'
+
+import { getPersistedUser, removePersistedUser } from '~/features/auth/storage'
 
 export type UserType = {
   id: string
@@ -26,8 +29,11 @@ export const UserContextProvider: FC<{ children: ReactNode }> = ({
 }) => {
   const [user, setUser] = useState<UserType | null>(null)
 
+  useEffect(() => setUser(getPersistedUser()), [])
+
   const handleLogout = useCallback(() => {
     setUser(null)
+    removePersistedUser()
   }, [])
 
   const value = useMemo(

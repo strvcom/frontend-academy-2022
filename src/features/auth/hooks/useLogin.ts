@@ -3,6 +3,7 @@ import { useMutation } from 'react-query'
 import { api } from '~/features/api'
 import type { UserType } from '~/features/auth/contexts/userContext'
 import { useUserContext } from '~/features/auth/contexts/userContext'
+import { setPersistedUser } from '~/features/auth/storage'
 
 type LoginInput = {
   email: string
@@ -22,6 +23,7 @@ export const useLogin = () => {
 
       const user = (await response.json()) as UserType
       setUser(user)
+      setPersistedUser(user)
       return user
     }
   )
