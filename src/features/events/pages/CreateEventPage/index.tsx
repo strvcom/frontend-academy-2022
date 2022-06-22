@@ -19,7 +19,7 @@ import {
 
 import { useCreateEventForm, EVENT_MIN_DATE } from '../../lib/create-event-form'
 
-const CreateEventPage: NextPage = () => {
+export const CreateEventPage: NextPage = () => {
   const form = useCreateEventForm()
   const { mutate } = useCreateEvent()
 
