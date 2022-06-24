@@ -3,12 +3,16 @@ import { defineConfig } from 'cypress'
 import http from 'http'
 import next from 'next'
 
+// TODO: .env
 const BASE_URL = 'http://localhost:3000'
+const NEXT_PUBLIC_API_URL = 'https://testproject-api-v2.strv.com/'
 
 export default defineConfig({
   e2e: {
     baseUrl: BASE_URL,
     setupNodeEvents: async (on, config) => {
+      config.env.api_url = NEXT_PUBLIC_API_URL
+
       const app = next({ dev: true })
       const handleNextRequests = app.getRequestHandler()
       await app.prepare()
@@ -23,6 +27,20 @@ export default defineConfig({
           resolve()
         })
       })
+
+      // We are not actually fetching events on server. But you can intercept xhr requests with nock
+      // https://glebbahmutov.com/blog/mock-network-from-server/
+      // on('task', {
+      //   clearNock() {
+      //     nock.restore()
+      //     nock.cleanAll()
+      //   },
+      //
+      //   nock(hostname: string, method: 'get' | 'post', path: string, statusCode: number, body: any) {
+      //     nock.activate()
+      //     nock(hostname)[method](path).reply(statusCode, body)
+      //   },
+      // })
 
       return config
     },
