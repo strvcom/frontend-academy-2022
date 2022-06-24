@@ -11,7 +11,9 @@
     "prepare": "husky install",
     "test": "jest",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run"
   },
   "dependencies": {
     "@hookform/resolvers": "^2.9.1",
@@ -47,6 +49,7 @@
     "@types/react-dom": "18.0.3",
     "@types/styled-components": "^5.1.25",
     "babel-loader": "^8.2.5",
+    "cypress": "^10.2.0",
     "eslint": "8.14.0",
     "eslint-config-next": "12.1.6",
     "husky": "^7.0.4",
