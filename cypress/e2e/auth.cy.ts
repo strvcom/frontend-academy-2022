@@ -16,7 +16,6 @@ describe('[scenario] auth', () => {
       cy.fillInput('input[name="password"]', invalid.password)
       cy.get('form').submit()
 
-      // cypress assert p contains Login Failed
       cy.get('p').should('contain', 'Login Failed')
     })
   })

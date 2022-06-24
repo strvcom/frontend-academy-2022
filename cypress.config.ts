@@ -28,7 +28,7 @@ export default defineConfig({
         })
       })
 
-      // We are not actually fetching events on server. But you can intercept xhr requests with nock
+      // We are not actually fetching events on server. But you can intercept requests with nock
       // https://glebbahmutov.com/blog/mock-network-from-server/
       // on('task', {
       //   clearNock() {
