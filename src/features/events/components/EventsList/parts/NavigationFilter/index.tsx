@@ -4,7 +4,7 @@ import { List, ListItem, MobileToggleLabel } from './styled'
 
 import { FilterType } from '../../../../contexts/event-filter'
 
-type Props = {
+export type Props = {
   activeFilter: FilterType
   onChange: (filterType: FilterType) => void
 }

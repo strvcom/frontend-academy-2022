@@ -3,7 +3,7 @@ import { useUserContext } from '~/features/auth/contexts/userContext'
 
 import { InitialsButton, User, Wrapper } from './styled'
 
-interface IProps {
+export interface IProps {
   user: UserType
 }
 
