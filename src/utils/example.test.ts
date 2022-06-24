@@ -1,9 +1,17 @@
 import { getExampleValue } from '~/utils/example'
 
-it('it works', () => {
-  jest.spyOn(global.Math, 'random').mockReturnValue(42)
+describe('[utils] example', function () {
+  beforeAll(() => {
+    jest.spyOn(global.Math, 'random').mockReturnValue(42)
+  })
 
-  expect(getExampleValue()).toStrictEqual(42)
+  afterAll(() => {
+    jest.spyOn(global.Math, 'random').mockRestore()
+  })
 
-  jest.spyOn(global.Math, 'random').mockRestore()
+  describe('example', () => {
+    it('it works', () => {
+      expect(getExampleValue()).toStrictEqual(42)
+    })
+  })
 })
