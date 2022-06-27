@@ -2,16 +2,16 @@ import type { NextPage } from 'next'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 
-import { useUserContext } from '~/features/auth/contexts/userContext'
+import { getPersistedUser } from '~/features/auth/storage'
 import { Routes } from '~/features/core/constants/routes'
 
 export const withPrivateRoute = (WrappedComponent: NextPage): NextPage => {
   const HOCComponent: NextPage = ({ ...props }) => {
     const router = useRouter()
-    const { user } = useUserContext()
     useEffect(() => {
+      const user = getPersistedUser()
       if (!user) void router.replace(Routes.LOGIN)
-    }, [router, user])
+    }, [router])
 
     return <WrappedComponent {...props} />
   }
