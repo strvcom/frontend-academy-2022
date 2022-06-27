@@ -1,3 +1,4 @@
+import * as Sentry from '@sentry/nextjs'
 import type { ReactNode } from 'react'
 import { Component } from 'react'
 
@@ -23,7 +24,11 @@ class ErrorBoundary extends Component<Props, State> {
   componentDidCatch(error: Error) {
     const { type } = this.props
 
-    console.error('Custom log: ', type, error)
+    Sentry.captureMessage(
+      `Error catched in ErrorBoundary with type: ${type}`,
+      'error'
+    )
+    Sentry.captureException(error)
   }
 
   render() {
