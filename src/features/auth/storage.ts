@@ -12,18 +12,6 @@ export const removeAccessToken = () => {
   window.localStorage.removeItem('accessToken')
 }
 
-export const getRefreshToken = () => {
-  return window.localStorage.getItem('refreshToken')
-}
-
-export const setRefreshToken = (refreshToken: string) => {
-  window.localStorage.setItem('refreshToken', refreshToken)
-}
-
-export const removeRefreshToken = () => {
-  window.localStorage.removeItem('refreshToken')
-}
-
 export const getPersistedUser = (): UserType | null => {
   const userJson = window.localStorage.getItem('user')
   return userJson ? (JSON.parse(userJson) as UserType) : null

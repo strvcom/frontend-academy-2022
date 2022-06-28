@@ -1,12 +1,12 @@
 import router from 'next/router'
 
-import { api } from '~/features/api/lib/client'
+import { api, apiInternal } from '~/features/api/lib/client'
 import type {
   AfterRequestInterceptor,
   BeforeRequestInterceptor,
 } from '~/features/api/lib/network-provider'
-import { getAccessToken, getRefreshToken } from '~/features/auth/storage'
-import { Routes } from '~/features/core/constants/routes'
+import { getAccessToken } from '~/features/auth/storage'
+import { ApiRoutes, Routes } from '~/features/core/constants/routes'
 
 const appendAccessToken: BeforeRequestInterceptor = (request) => {
   const accessToken = getAccessToken()
@@ -21,15 +21,8 @@ const handleUnauthorized: AfterRequestInterceptor = async (
   context
 ) => {
   if (response.status === 403 || response.status === 401) {
-    const refreshToken = getRefreshToken()
-    if (!refreshToken) {
-      return response
-    }
-
     // persistTokens interceptor will store the tokens if refresh succeeds
-    const refreshResponse = await api.post('/auth/native', {
-      json: { refreshToken },
-    })
+    const refreshResponse = await apiInternal.post(ApiRoutes.REFRESH_TOKEN)
     if (refreshResponse.status >= 400) {
       void router.replace({
         pathname: Routes.LOGIN,
