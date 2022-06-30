@@ -19,7 +19,7 @@ const filters = {
 
 const { ALL, FUTURE, PAST } = FilterType
 
-const listBuilders = {
+export const listBuilders = {
   [ALL]: (events: Event[]) => [...events].sort(sorts.asc),
   [FUTURE]: (events: Event[]) => events.filter(filters.future).sort(sorts.asc),
   [PAST]: (events: Event[]) => events.filter(filters.past).sort(sorts.desc),
