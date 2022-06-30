@@ -14,7 +14,7 @@ import {
 
 import type { Event } from '../../../../types'
 
-type Props = {
+export type Props = {
   event: Event
   isRow?: boolean
 }

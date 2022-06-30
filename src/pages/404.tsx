@@ -1,1 +1,1 @@
-export { NotFoundPage as default } from '~/features/ui/components/NotFoundPage'
+export { NotFoundPage as default } from '~/features/ui/components/ErrorPage'

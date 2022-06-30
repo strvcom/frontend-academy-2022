@@ -8,7 +8,7 @@ type TDocument = {
 }
 
 const Document: TDocument = () => (
-  <Html>
+  <Html lang="en">
     <Head>
       <link rel="preconnect" href="https://fonts.googleapis.com" />
       <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />

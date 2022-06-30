@@ -1,3 +1,4 @@
+import * as Sentry from '@sentry/nextjs'
 import router from 'next/router'
 
 import { api } from '~/features/api/lib/client'
@@ -21,8 +22,12 @@ const handleUnauthorized: AfterRequestInterceptor = async (
   context
 ) => {
   if (response.status === 403 || response.status === 401) {
+    Sentry.captureMessage('handling unauthorized request')
+
     const refreshToken = getRefreshToken()
     if (!refreshToken) {
+      Sentry.captureMessage('missing refreshToken')
+
       return response
     }
 
@@ -31,6 +36,8 @@ const handleUnauthorized: AfterRequestInterceptor = async (
       json: { refreshToken },
     })
     if (refreshResponse.status >= 400) {
+      Sentry.captureMessage('refreshResponse failed to refresh token')
+
       void router.replace({
         pathname: Routes.LOGIN,
         // we need to clear persisted stuff and context

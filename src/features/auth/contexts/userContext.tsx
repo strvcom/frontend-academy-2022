@@ -1,3 +1,4 @@
+import * as Sentry from '@sentry/nextjs'
 import type { FC, ReactNode } from 'react'
 import { useEffect } from 'react'
 import { useMemo, useCallback } from 'react'
@@ -37,6 +38,8 @@ export const UserContextProvider: FC<{ children: ReactNode }> = ({
   useEffect(() => setUser(getPersistedUser()), [])
 
   const handleLogout = useCallback(() => {
+    Sentry.captureMessage('handling logout')
+
     setUser(null)
     removePersistedUser()
     removeRefreshToken()

@@ -6,7 +6,7 @@ import { ListItem } from './styled'
 
 import { ViewType } from '../../../../contexts/event-view'
 
-type Props = {
+export type Props = {
   activeView: ViewType
   onChange: (viewType: ViewType) => void
 }
