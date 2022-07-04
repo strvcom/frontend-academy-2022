@@ -1,6 +1,6 @@
 # Eventio
 
-A project developed during the STRV Frontend Academy 2022
+A project developed during the STRV Frontend Academy 2022. For the Academy lessons, please, check out the [Wiki pages](https://github.com/strvcom/frontend-academy-2022/wiki).
 
 ### Built With
 
@@ -9,7 +9,7 @@ A project developed during the STRV Frontend Academy 2022
 
 ## Getting Started
 
-Follow this section to get the project running in your development machine.
+Follow this section to get the project running on your development machine.
 
 ### Prerequisites
 
@@ -21,7 +21,7 @@ Before getting started, make sure you have these tools installed:
 
 > We recommend you use [nvm](https://github.com/nvm-sh/nvm) to install Node.js.
 
-### Installation
+### 1. Installation
 
 Provided you have all prerequisites ready, you can install the application with the following command:
 
@@ -29,11 +29,17 @@ Provided you have all prerequisites ready, you can install the application with 
 yarn
 ```
 
-### Environment variables
+### 2. Environment variables
 
-> For now, this project does not depend on environment variables. Once there are some, we'll document here how to get and install them.
+Setup environment variables:
 
-### Start the Application
+```sh
+cp .env.example .env
+```
+
+For the `API_KEY`, reach out to [daniel.kraus@strv.com](mailto:daniel.kraus@strv.com?subject=FE%20Academy%3A%20I%20need%20the%20API%20Key).
+
+### 3. Start the Application
 
 To start a local server with the running application, run the following:
 
@@ -41,30 +47,16 @@ To start a local server with the running application, run the following:
 yarn dev
 ```
 
-### Deployment
+## Deployment
 
 The application is deployed at [Vercel](https://vercel.com/) everytime new commits are pushed to the `main` branch (production mode) or to other branches (preview mode).
 
 > In case you need to deploy manually, you can install the [Vercel CLI](https://vercel.com/cli) and run the following command: `vercel`
 
-## Roadmap
+## Links
 
-- [x] Project setup
-- [ ] List of events
-  - [ ] Consume events from API
-  - [ ] Present the list of events
-  - [ ] Allow switching between past/future events
-  - [ ] Allow switching between list/grid view modes
-  - [ ] Allow user to apply to an event
-- [ ] Login
-  - [ ] Create login form with client-side validation
-  - [ ] Integrate form with API
-  - [ ] Redirect user based on authentication status
-- [ ] Create event
-  - [ ] Create new event form with client-side validation
-  - [ ] Integrate form with API
-  - [ ] Redirect user to the list after creation
-  - [ ] Refresh list of events upong creation
+- [API Docs](https://strvtestprojectv2.docs.apiary.io/) - Apiary
+- [UI Design](https://www.figma.com/file/1sXplbYZYnKSb6eXaJ44pT/Eventio---Frontend-Test-Project) - Figma
 
 ## Contributing
 
@@ -73,5 +65,5 @@ To start contributing to this project:
 1. Clone the repository
 2. Create a new branch (`git checkout -b feature/feature-name`)
 3. Commit your changes (`git commit -m 'feat: add login form'`)
-4. Push to the cranch (`git push origin feature/feature-name`)
+4. Push to the branch (`git push origin feature/feature-name`)
 5. Open a Pull Request
