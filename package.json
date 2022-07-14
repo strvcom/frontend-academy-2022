@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "build:vercel": "yarn build && yarn build-architecture-graph",
+    "build:vercel": "yarn build && yum install graphviz -y && yarn build-architecture-graph",
     "start": "next start",
     "lint": "next lint",
     "format": "prettier --check .",
