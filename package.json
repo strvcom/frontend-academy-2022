@@ -13,6 +13,7 @@
     "test": "jest",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
+    "build-architecture-graph": "depcruise -c .dependency-cruiser.js --output-type dot src | dot -T svg | depcruise-wrap-stream-in-html > architecture.html",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
     "type-check": "tsc"
@@ -54,6 +55,7 @@
     "@types/styled-components": "^5.1.25",
     "babel-loader": "^8.2.5",
     "cypress": "^10.2.0",
+    "dependency-cruiser": "^11.11.0",
     "eslint": "8.14.0",
     "eslint-config-next": "12.1.6",
     "husky": "^7.0.4",
