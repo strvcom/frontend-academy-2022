@@ -1,3 +1,15 @@
+const config = {
+  repo: {
+    slug: process.env.VERCEL_GIT_REPO_SLUG,
+    owner: process.env.VERCEL_GIT_REPO_OWNER,
+  },
+  commit: process.env.VERCEL_GIT_COMMIT_SHA,
+}
+
+const prefix = process.env.VERCEL
+  ? `https://github.com/${config.repo.owner}/${config.repo.slug}/tree/${config.commit}/`
+  : `file://${process.cwd()}/`
+
 /** @type {import('dependency-cruiser').IConfiguration} */
 module.exports = {
   options: {
@@ -38,7 +50,7 @@ module.exports = {
        to open it on your online repo or `vscode://file/${process.cwd()}/` to 
        open it in visual studio code),
      */
-    // prefix: '',
+    prefix: prefix,
 
     /* false (the default): ignore dependencies that only exist before typescript-to-javascript compilation
        true: also detect dependencies that only exist before typescript-to-javascript compilation

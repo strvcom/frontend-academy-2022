@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "build:vercel": "yarn build && yarn build-architecture-graph",
     "start": "next start",
     "lint": "next lint",
     "format": "prettier --check .",
@@ -12,7 +13,7 @@
     "test": "jest",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "build-architecture-graph": "depcruise -c .dependency-cruiser.js --output-type dot src | dot -T svg | depcruise-wrap-stream-in-html > architecture.html",
+    "build-architecture-graph": "depcruise -c .dependency-cruiser.js --output-type dot src | dot -T svg | depcruise-wrap-stream-in-html > public/architecture.html",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
     "type-check": "tsc"
