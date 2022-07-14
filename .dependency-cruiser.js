@@ -27,10 +27,10 @@ module.exports = {
        - dynamic: a boolean indicating whether to ignore dynamic (true) or static (false) dependencies.
           leave out if you want to exclude neither (recommended!)
     */
-    // exclude : {
-    //   path: '',
-    //   dynamic: true
-    // },
+    exclude: {
+      path: '(\\.stories\\.)|(\\.test\\.)',
+      // dynamic: true
+    },
 
     /* pattern specifying which files to include (regular expression)
        dependency-cruiser will skip everything not matching this pattern
@@ -148,7 +148,7 @@ module.exports = {
            collapses everything in node_modules to one folder deep so you see
            the external modules, but not the innards your app depends upon.
          */
-        collapsePattern: 'node_modules/[^/]+',
+        collapsePattern: ['^src/(.+)/parts'],
 
         /* Options to tweak the appearance of your graph.See
            https://github.com/sverweij/dependency-cruiser/blob/master/doc/options-reference.md#reporteroptions
@@ -158,9 +158,13 @@ module.exports = {
         theme: {
           graph: {
             splines: 'ortho',
-            rankdir: 'LR',
+            rankdir: 'TB',
           },
           modules: [
+            {
+              criteria: { source: 'index\\.tsx?' },
+              attributes: { fontsize: 12 },
+            },
             {
               criteria: { source: '^src/pages' },
               attributes: { fillcolor: '#99ffff' },
