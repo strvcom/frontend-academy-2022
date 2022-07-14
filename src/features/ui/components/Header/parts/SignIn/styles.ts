@@ -1,15 +1,14 @@
 import styled from 'styled-components'
 
-import { colors } from '~/features/ui/theme/colors'
-import { typography } from '~/features/ui/theme/typography'
+import * as theme from '../../../../theme'
 
 export const Anchor = styled.a`
-  ${typography.paragraph.small}
-  color: ${colors.text.light};
+  ${theme.typography.paragraph.small}
+  color: ${theme.colors.text.light};
 
   b {
-    ${typography.label.medium}
-    color: ${colors.text.dimmed};
+    ${theme.typography.label.medium}
+    color: ${theme.colors.text.dimmed};
     font-weight: 500;
   }
 `

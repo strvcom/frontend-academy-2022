@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { typography } from '~/features/ui/theme/typography'
+import { typography } from '../../theme'
 
 export const Title = styled.h1`
   ${typography.heading.h2}

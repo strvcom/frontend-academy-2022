@@ -1,20 +1,16 @@
 import styled, { css } from 'styled-components'
 
-import { Button } from '~/features/ui/components/Button'
-import { colors } from '~/features/ui/theme/colors'
-import { elevations } from '~/features/ui/theme/elevations'
-import { mq } from '~/features/ui/theme/mq'
-import { typography } from '~/features/ui/theme/typography'
+import { Button, theme } from '~/features/ui'
 
 export const Title = styled.h3`
-  ${typography.heading.h3}
-  color: ${colors.text.base};
+  ${theme.typography.heading.h3}
+  color: ${theme.colors.text.base};
 `
 
 export const Name = styled.p``
 
 export const Description = styled.p`
-  ${typography.paragraph.normal}
+  ${theme.typography.paragraph.normal}
   margin: 3.2rem 0 4rem;
 `
 
@@ -34,10 +30,10 @@ export const EditButton = styled(Button).attrs({
 })``
 
 export const Article = styled.article<{ isRow: boolean }>`
-  ${elevations[100]}
+  ${theme.elevations[100]}
   padding: 3.2rem;
   border-radius: 2px;
-  background-color: ${colors.background.light};
+  background-color: ${theme.colors.background.light};
 
   ${(props) =>
     props.isRow &&
@@ -60,7 +56,7 @@ export const Article = styled.article<{ isRow: boolean }>`
         margin: 0;
       }
 
-      ${mq.smallOnly} {
+      ${theme.mq.smallOnly} {
         display: grid;
         grid-template-columns: 1fr auto;
 
@@ -80,7 +76,7 @@ export const Article = styled.article<{ isRow: boolean }>`
         }
       }
 
-      ${mq.medium} {
+      ${theme.mq.medium} {
         display: flex;
         align-items: baseline;
         gap: 1.5rem;
@@ -96,7 +92,7 @@ export const Article = styled.article<{ isRow: boolean }>`
         }
 
         ${Title} {
-          ${typography.heading.h4}
+          ${theme.typography.heading.h4}
           order: -2;
         }
 

@@ -1,1 +1,1 @@
-export { ServerErrorPage as default } from '~/features/ui/components/ErrorPage'
+export { ServerErrorPage as default } from '~/features/ui'

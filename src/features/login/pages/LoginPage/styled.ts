@@ -1,11 +1,9 @@
 import styled from 'styled-components'
 
-import { Button } from '~/features/ui/components/Button'
-import { colors } from '~/features/ui/theme/colors'
-import { typography } from '~/features/ui/theme/typography'
+import { Button, theme } from '~/features/ui'
 
 export const Title = styled.h1`
-  ${typography.heading.h2}
+  ${theme.typography.heading.h2}
 `
 
 // To not have <SubmitButton type="submit" … />, we are passing
@@ -27,11 +25,11 @@ export const FormWrapper = styled.div`
 `
 
 export const Description = styled.p`
-  ${typography.paragraph.large}
+  ${theme.typography.paragraph.large}
   margin: 0.5rem 0;
 `
 
 // We are extending the Description component and adding addional styles to it
 export const ErrorMessage = styled(Description)`
-  color: ${colors.accent.destructive};
+  color: ${theme.colors.accent.destructive};
 `

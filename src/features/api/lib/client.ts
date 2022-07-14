@@ -1,4 +1,4 @@
-import { setAccessToken, setRefreshToken } from '~/features/auth/storage'
+import { setAccessToken, setRefreshToken } from '~/features/auth'
 
 import type {
   AfterRequestInterceptor,

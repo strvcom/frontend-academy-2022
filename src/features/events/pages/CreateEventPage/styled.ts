@@ -1,10 +1,6 @@
 import styled, { keyframes } from 'styled-components'
 
-import { Button } from '~/features/ui/components/Button'
-import { Container as ContainerBase } from '~/features/ui/components/Container'
-import { colors } from '~/features/ui/theme/colors'
-import { elevations } from '~/features/ui/theme/elevations'
-import { typography } from '~/features/ui/theme/typography'
+import { Button, Container as ContainerBase, theme } from '~/features/ui'
 
 import { CloseIcon } from './parts/LogoIcon'
 
@@ -17,22 +13,22 @@ export const Container = styled(ContainerBase)`
 `
 
 export const FormWrapper = styled.div`
-  ${elevations[100]}
+  ${theme.elevations[100]}
   width: 100%;
   max-width: 48rem;
   padding: 4rem 3.2rem;
   margin: 0 auto;
   border-radius: 2px;
   text-align: center;
-  background-color: ${colors.background.light};
+  background-color: ${theme.colors.background.light};
 `
 
 export const Title = styled.h1`
-  ${typography.heading.h2}
+  ${theme.typography.heading.h2}
 `
 
 export const Description = styled.p`
-  ${typography.paragraph.large}
+  ${theme.typography.paragraph.large}
 `
 
 export const SubmitButton = styled(Button).attrs({
@@ -53,8 +49,8 @@ const closeIconAnimation = keyframes`
 `
 
 export const CloseLink = styled.a`
-  ${typography.paragraph.normal}
-  color: ${colors.text.base};
+  ${theme.typography.paragraph.normal}
+  color: ${theme.colors.text.base};
 
   ${StyledCloseIcon} {
     display: inline-block;

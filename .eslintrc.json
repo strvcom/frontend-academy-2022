@@ -14,6 +14,20 @@
     "react/require-default-props": [0],
     "react/sort-comp": "off",
     "import/extensions": [2, { "json": "always" }],
+    "import/order": [
+      "error",
+      {
+        "alphabetize": { "order": "asc", "caseInsensitive": true },
+        "groups": [
+          ["builtin", "external"],
+          "internal",
+          "parent",
+          ["sibling", "index"]
+        ],
+        "newlines-between": "always",
+        "pathGroups": [{ "pattern": "~/**", "group": "internal" }]
+      }
+    ],
     "@typescript-eslint/no-misused-promises": [
       "error",
       {

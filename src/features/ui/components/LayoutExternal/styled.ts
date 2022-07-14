@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
-import { VerticalCenter } from '~/features/ui/components/VerticalCenter'
-import { mq } from '~/features/ui/theme/mq'
+import { mq } from '../../theme'
+import { VerticalCenter } from '../VerticalCenter'
 
 export const Layout = styled.div`
   display: flex;

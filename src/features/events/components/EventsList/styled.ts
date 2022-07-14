@@ -1,8 +1,6 @@
 import styled, { css } from 'styled-components'
 
-import { colors } from '~/features/ui/theme/colors'
-import { mq } from '~/features/ui/theme/mq'
-import { typography } from '~/features/ui/theme/typography'
+import { theme } from '~/features/ui'
 
 import { ViewType } from '../../contexts/event-view'
 
@@ -12,19 +10,19 @@ export const Nav = styled.nav`
   align-items: center;
   padding: 0 1.5rem;
 
-  ${mq.medium} {
+  ${theme.mq.medium} {
     padding: 0;
   }
 `
 
 export const List = styled.ul<{ view: ViewType }>`
-  ${typography.paragraph.small}
+  ${theme.typography.paragraph.small}
   display: grid;
   gap: 1.5rem;
   padding: 0;
   padding: 3rem 0 8rem;
   list-style: none;
-  color: ${colors.text.dimmed};
+  color: ${theme.colors.text.dimmed};
 
   ${(props) =>
     props.view === ViewType.GRID &&

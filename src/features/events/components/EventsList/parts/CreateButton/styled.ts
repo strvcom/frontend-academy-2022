@@ -1,10 +1,9 @@
 import styled from 'styled-components'
 
-import { colors } from '~/features/ui/theme/colors'
-import { elevations } from '~/features/ui/theme/elevations'
+import { theme } from '~/features/ui'
 
 export const CreateLink = styled.a`
-  ${elevations[900]}
+  ${theme.elevations[900]}
   display: flex;
   align-items: center;
   justify-content: center;
@@ -15,7 +14,7 @@ export const CreateLink = styled.a`
   height: 5.6rem;
   margin: 3.2rem;
   border-radius: 50%;
-  color: ${colors.text.inverted};
+  color: ${theme.colors.text.inverted};
   cursor: pointer;
-  background-color: ${colors.background.dark};
+  background-color: ${theme.colors.background.dark};
 `
