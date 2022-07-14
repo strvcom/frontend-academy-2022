@@ -1,8 +1,9 @@
 import type { FC, ReactNode } from 'react'
 
-import { useUserContext } from '~/features/auth/contexts/userContext'
-import type { User } from '~/features/events/types'
-import { AccountInfo } from '~/features/ui/components/AccountInfo'
+import { useUserContext } from '~/features/auth'
+import type { User } from '~/features/events'
+
+import { AccountInfo } from '../AccountInfo'
 
 import { SignIn } from './parts/SignIn'
 import { StyledHeader, StyledLogo } from './styled'

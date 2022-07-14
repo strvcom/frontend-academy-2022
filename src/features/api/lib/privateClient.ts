@@ -1,13 +1,14 @@
 import * as Sentry from '@sentry/nextjs'
 import router from 'next/router'
 
-import { api } from '~/features/api/lib/client'
+import { getAccessToken, getRefreshToken } from '~/features/auth'
+import { Routes } from '~/features/core'
+
+import { api } from './client'
 import type {
   AfterRequestInterceptor,
   BeforeRequestInterceptor,
-} from '~/features/api/lib/network-provider'
-import { getAccessToken, getRefreshToken } from '~/features/auth/storage'
-import { Routes } from '~/features/core/constants/routes'
+} from './network-provider'
 
 const appendAccessToken: BeforeRequestInterceptor = (request) => {
   const accessToken = getAccessToken()

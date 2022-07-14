@@ -1,16 +1,13 @@
 import styled from 'styled-components'
 
-import { StyleReset } from '~/features/ui/components/StyleReset'
-import { colors } from '~/features/ui/theme/colors'
-import { mq } from '~/features/ui/theme/mq'
-import { typography } from '~/features/ui/theme/typography'
+import { StyleReset, theme } from '~/features/ui'
 
 export const List = styled.ul`
   display: none;
   padding: 0;
   list-style: none;
 
-  ${mq.medium} {
+  ${theme.mq.medium} {
     display: block;
   }
 `
@@ -18,20 +15,20 @@ export const List = styled.ul`
 export const ListItem = styled.li<{ isActive?: boolean }>`
   display: inline-block;
   margin-right: 3.2rem;
-  color: ${(props) => (props.isActive ? colors.text.base : colors.text.tabs)};
+  color: ${(props) => theme.colors.text[props.isActive ? 'base' : 'tabs']};
 
   button {
     ${StyleReset}
-    ${typography.label.small}
+    ${theme.typography.label.small}
     cursor: pointer;
   }
 `
 
 export const MobileToggleLabel = styled.label`
-  ${typography.label.small}
-  color: ${colors.text.tabs};
+  ${theme.typography.label.small}
+  color: ${theme.colors.text.tabs};
 
-  ${mq.medium} {
+  ${theme.mq.medium} {
     display: none;
   }
 
@@ -42,12 +39,12 @@ export const MobileToggleLabel = styled.label`
     border: 0.5em solid transparent;
     border-top-color: currentColor;
     border-bottom-width: 0;
-    color: ${colors.text.base};
+    color: ${theme.colors.text.base};
   }
 
   select {
     ${StyleReset}
-    color: ${colors.text.base};
+    color: ${theme.colors.text.base};
     cursor: pointer;
   }
 `

@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { AccessibleHidden } from '~/features/ui/components/AccessibleHidden'
+import { AccessibleHidden } from '~/features/ui'
 
 export const H1 = styled.h1`
   ${AccessibleHidden}

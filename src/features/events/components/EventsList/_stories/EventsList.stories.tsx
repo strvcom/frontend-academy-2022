@@ -1,11 +1,11 @@
 import type { Story, Meta } from '@storybook/react/types-6-0'
 import React from 'react'
 
-import { EventsListComponent } from '~/features/events/components/EventsList/EventsList'
-import type { Props } from '~/features/events/components/EventsList/EventsList'
-import { EventFilterContextProvider } from '~/features/events/contexts/event-filter'
-import { EventViewContextProvider } from '~/features/events/contexts/event-view'
-import { createEvent } from '~/features/events/types.fixtures'
+import { EventFilterContextProvider } from '../../../contexts/event-filter'
+import { EventViewContextProvider } from '../../../contexts/event-view'
+import { createEvent } from '../../../types.fixtures'
+import { EventsListComponent } from '../EventsList'
+import type { Props } from '../EventsList'
 
 export default {
   title: 'Events/Events List/Component',

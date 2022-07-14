@@ -9,7 +9,7 @@ import {
   removeAccessToken,
   removePersistedUser,
   removeRefreshToken,
-} from '~/features/auth/storage'
+} from '../storage'
 
 export type UserType = {
   id: string

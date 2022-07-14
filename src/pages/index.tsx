@@ -1,1 +1,1 @@
-export { DashboardPage as default } from '~/features/events/pages/DashboardPage'
+export { DashboardPage as default } from '~/features/events'

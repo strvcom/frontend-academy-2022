@@ -1,12 +1,11 @@
 import type { NextPage } from 'next'
 
-import { EventsList } from '~/features/events/components/EventsList'
-import { Container } from '~/features/ui/components/Container'
-import { LayoutInternal } from '~/features/ui/components/LayoutInternal'
+import { Container, LayoutInternal } from '~/features/ui'
+
+import { EventsList } from '../../components/EventsList'
+import { CreateButton } from '../../components/EventsList/parts/CreateButton'
 
 import { H1, H2 } from './styled'
-
-import { CreateButton } from '../../components/EventsList/parts/CreateButton'
 
 export const DashboardPage: NextPage = () => (
   <LayoutInternal>

@@ -1,6 +1,6 @@
 import { faker } from '@faker-js/faker'
 
-import type { User } from '~/features/events/types'
+import type { User } from '~/features/events'
 
 export const createUser = () => ({
   id: faker.datatype.uuid(),

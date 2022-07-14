@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router'
 import { useMutation } from 'react-query'
 
-import { privateApi } from '~/features/api/lib/privateClient'
+import { privateApi } from '~/features/api'
 
 type EventInput = {
   title: string

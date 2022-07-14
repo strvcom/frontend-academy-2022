@@ -1,6 +1,6 @@
 import type { ReactNode, FC } from 'react'
 
-import { Header } from '~/features/ui/components/Header'
+import { Header } from '../Header'
 
 import { AsideCover } from './parts/AsideCover'
 import { Layout, Main } from './styled'

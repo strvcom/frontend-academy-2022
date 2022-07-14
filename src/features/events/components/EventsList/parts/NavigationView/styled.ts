@@ -1,13 +1,12 @@
 import styled, { css } from 'styled-components'
 
-import { StyleReset } from '~/features/ui/components/StyleReset'
-import { colors } from '~/features/ui/theme/colors'
+import { StyleReset, theme } from '~/features/ui'
 
 export const ListItem = styled.li<{ isActive: boolean }>`
   display: inline-block;
   list-style: none;
   margin-left: 0.8rem;
-  color: ${(props) => (props.isActive ? colors.text.base : colors.text.silent)};
+  color: ${(props) => theme.colors.text[props.isActive ? 'base' : 'silent']};
 
   button {
     ${StyleReset}

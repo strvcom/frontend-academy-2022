@@ -1,5 +1,6 @@
-import { listBuilders } from '~/features/events/hooks/useEvents'
-import type { Event } from '~/features/events/types'
+import type { Event } from '../types'
+
+import { listBuilders } from './useEvents'
 
 describe('[hooks] useEvents', () => {
   describe('listBuilders', () => {

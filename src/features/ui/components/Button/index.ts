@@ -1,8 +1,7 @@
 import styled, { css } from 'styled-components'
 
-import { StyleReset } from '~/features/ui/components/StyleReset'
-import { colors } from '~/features/ui/theme/colors'
-import { typography } from '~/features/ui/theme/typography'
+import * as theme from '../../theme'
+import { StyleReset } from '../StyleReset'
 
 type ButtonProps = {
   size?: 'small' | 'medium'
@@ -17,12 +16,12 @@ export const Button = styled.button<ButtonProps>`
     However, within a single file like here CSS variables can save us
     a few lines of typing and make the code easier to read.
   */
-  --text-color: ${colors.text.inverted};
-  --background-color: ${colors.background.dark};
-  --background-color-hover: ${colors.background.dark};
+  --text-color: ${theme.colors.text.inverted};
+  --background-color: ${theme.colors.background.dark};
+  --background-color-hover: ${theme.colors.background.dark};
 
   ${StyleReset}
-  ${typography.label.large}
+  ${theme.typography.label.large}
   padding: 0.8em 5.4em;
   color: var(--text-color);
   border-radius: 4px;
@@ -30,8 +29,8 @@ export const Button = styled.button<ButtonProps>`
   background-color: var(--background-color);
 
   &:disabled {
-    --text-color: ${colors.text.inactive};
-    --background-color: ${colors.background.inactive};
+    --text-color: ${theme.colors.text.inactive};
+    --background-color: ${theme.colors.background.inactive};
   }
 
   &:not(:disabled) {
@@ -46,21 +45,21 @@ export const Button = styled.button<ButtonProps>`
   ${(props) =>
     props.accent === 'primary' &&
     css`
-      --background-color: ${colors.accent.primary};
-      --background-color-hover: ${colors.accent.primaryHover};
+      --background-color: ${theme.colors.accent.primary};
+      --background-color-hover: ${theme.colors.accent.primaryHover};
     `}
 
   ${(props) =>
     props.accent === 'destructive' &&
     css`
-      --background-color: ${colors.accent.destructive};
-      --background-color-hover: ${colors.accent.destructiveHover};
+      --background-color: ${theme.colors.accent.destructive};
+      --background-color-hover: ${theme.colors.accent.destructiveHover};
     `}
 
   ${(props) =>
     props.size === 'small' &&
     css`
-      ${typography.label.medium}
+      ${theme.typography.label.medium}
       padding: 0.3em 2em 0.2em;
     `}
 `

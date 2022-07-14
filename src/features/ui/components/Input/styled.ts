@@ -1,7 +1,6 @@
 import styled, { css, keyframes } from 'styled-components'
 
-import { colors } from '~/features/ui/theme/colors'
-
+import { colors } from '../../theme'
 import { StyleReset } from '../StyleReset'
 
 const padding = css`

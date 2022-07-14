@@ -1,21 +1,15 @@
 import type { FC } from 'react'
 import { useMemo } from 'react'
 
-import { EventItem } from '~/features/events/components/EventsList/parts/EventItem'
-import { NavigationFilter } from '~/features/events/components/EventsList/parts/NavigationFilter'
-import { NavigationView } from '~/features/events/components/EventsList/parts/NavigationView'
-import {
-  List,
-  ListItem,
-  Nav,
-} from '~/features/events/components/EventsList/styled'
-import { useEventFilterContext } from '~/features/events/contexts/event-filter'
-import {
-  useEventViewContext,
-  ViewType,
-} from '~/features/events/contexts/event-view'
-import { listBuilders } from '~/features/events/hooks/useEvents'
-import type { Event } from '~/features/events/types'
+import { useEventFilterContext } from '../../contexts/event-filter'
+import { useEventViewContext, ViewType } from '../../contexts/event-view'
+import { listBuilders } from '../../hooks/useEvents'
+import type { Event } from '../../types'
+
+import { EventItem } from './parts/EventItem'
+import { NavigationFilter } from './parts/NavigationFilter'
+import { NavigationView } from './parts/NavigationView'
+import { List, ListItem, Nav } from './styled'
 
 export type Props = {
   isLoading: boolean

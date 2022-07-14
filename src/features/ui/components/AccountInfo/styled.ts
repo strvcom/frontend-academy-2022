@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
-import { colors } from '~/features/ui/theme/colors'
-import { typography } from '~/features/ui/theme/typography'
+import * as theme from '../../theme'
 
 export const Wrapper = styled.div`
   display: flex;
@@ -13,9 +12,9 @@ export const Wrapper = styled.div`
   }
 `
 export const InitialsButton = styled.button`
-  ${typography.paragraph.small}
+  ${theme.typography.paragraph.small}
   border-radius: 50%;
-  background-color: ${colors.background.inactive};
+  background-color: ${theme.colors.background.inactive};
   font-family: 'hind', sans-serif;
   width: 40px;
   height: 40px;
@@ -23,8 +22,8 @@ export const InitialsButton = styled.button`
 `
 
 export const User = styled.span`
-  ${typography.paragraph.small}
-  color: ${colors.text.dimmed};
+  ${theme.typography.paragraph.small}
+  color: ${theme.colors.text.dimmed};
 `
 
 export const DropIcon = styled.img``

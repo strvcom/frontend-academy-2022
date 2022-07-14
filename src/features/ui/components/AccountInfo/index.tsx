@@ -1,5 +1,5 @@
-import type { UserType } from '~/features/auth/contexts/userContext'
-import { useUserContext } from '~/features/auth/contexts/userContext'
+import type { UserType } from '~/features/auth'
+import { useUserContext } from '~/features/auth'
 
 import { InitialsButton, User, Wrapper } from './styled'
 

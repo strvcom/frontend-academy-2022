@@ -1,9 +1,9 @@
 import type { NextPage } from 'next'
 import Link from 'next/link'
 
-import { Button } from '~/features/ui/components/Button'
-import { Container } from '~/features/ui/components/Container'
-import { LayoutExternal } from '~/features/ui/components/LayoutExternal'
+import { Button } from '../Button'
+import { Container } from '../Container'
+import { LayoutExternal } from '../LayoutExternal'
 
 import { HeadImage } from './parts/HeadImage'
 import { Description, Title } from './styled'

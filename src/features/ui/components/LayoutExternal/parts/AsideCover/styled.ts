@@ -1,8 +1,6 @@
 import styled from 'styled-components'
 
-import { colors } from '~/features/ui/theme/colors'
-import { mq } from '~/features/ui/theme/mq'
-import { font, typography } from '~/features/ui/theme/typography'
+import { colors, mq, font, typography } from '../../../../theme'
 
 export const Aside = styled.aside`
   display: none;

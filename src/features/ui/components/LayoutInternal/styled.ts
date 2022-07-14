@@ -1,6 +1,6 @@
 import styled, { createGlobalStyle } from 'styled-components'
 
-import { colors } from '~/features/ui/theme/colors'
+import { colors } from '../../theme'
 
 export const InternalGlobalStyle = createGlobalStyle`
 body {
