@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "build:analyze": "ANALYZE=1 yarn build",
-    "build:vercel": "yarn build && yum install graphviz -y && yarn build-architecture-graph",
+    "build:vercel": "yarn build && yum install graphviz -y && yarn create-architecture-graph",
     "start": "next start",
     "lint": "next lint",
     "format": "prettier --check .",
@@ -14,7 +14,7 @@
     "test": "jest",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "build-architecture-graph": "depcruise -c depcruise-config.js --output-type dot src | dot -T svg | depcruise-wrap-stream-in-html > public/architecture.html",
+    "create-architecture-graph": "./scripts/create-architecture-maps.sh",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
     "type-check": "tsc"
