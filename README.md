@@ -66,6 +66,18 @@ The application is deployed at [Vercel](https://vercel.com/) everytime new commi
   - [ ] Redirect user to the list after creation
   - [ ] Refresh list of events upong creation
 
+## Architecture
+
+Deploys to Vercel will also generate dependency maps, which are made public on the deploy URL on the following paths:
+
+- `_dev/architecture/index.html`: Full map
+- `_dev/architecture/2.html`: 2 levels deep
+- `_dev/architecture/3.html`: 3 levels deep
+- `_dev/architecture/4.html`: 4 lebels deep
+- `_dev/architecture/5.html`: 5 levels deep
+
+This *should not* be available in production, but we make it so as a means to have historical evolution of the architecture refactoring.
+
 ## Contributing
 
 To start contributing to this project:
