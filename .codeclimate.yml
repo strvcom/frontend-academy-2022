@@ -1,0 +1,12 @@
+version: '2'
+exclude_patterns:
+  - '*'
+  - '**/*'
+  - '!src/'
+  - '**/spec/'
+  - '**/test/'
+  - '**/tests/'
+  - '**/_stories/'
+  - '**/*.d.ts'
+  - '**/*.test.*'
+  - '**/*.stories.*'
