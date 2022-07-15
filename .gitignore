@@ -14,7 +14,7 @@
 
 # production
 /build
-/public/architecture.html
+/public/_dev
 
 # misc
 .DS_Store
