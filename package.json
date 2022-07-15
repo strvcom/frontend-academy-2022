@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "build:analyze": "ANALYZE=1 yarn build",
     "start": "next start",
     "lint": "next lint",
     "format": "prettier --check .",
@@ -32,6 +33,7 @@
     "@babel/core": "^7.18.5",
     "@commitlint/cli": "^16.2.4",
     "@faker-js/faker": "^7.3.0",
+    "@next/bundle-analyzer": "^12.2.2",
     "@storybook/addon-actions": "^6.5.9",
     "@storybook/addon-essentials": "^6.5.9",
     "@storybook/addon-interactions": "^6.5.9",
