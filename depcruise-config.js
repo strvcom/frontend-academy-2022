@@ -10,6 +10,31 @@ const prefix = process.env.VERCEL
   ? `https://github.com/${config.repo.owner}/${config.repo.slug}/tree/${config.commit}/`
   : `file://${process.cwd()}/`
 
+/**
+ * Pallete:
+ *
+ * #AAA9A9
+ * #3FA4D8
+ * #34BEB8
+ * #B2C125
+ * #FECC2F
+ * #F9A227
+ * #F5631F
+ * #DB3838
+ * #EF647A
+ * #A363D9
+ */
+const colors = Object.entries({
+  '^src/pages': '#A363D9',
+  '^src/utils': '#AAA9A9',
+  '^src/features/api': '#3FA4D8',
+  '^src/features/auth': '#34BEB8',
+  '^src/features/core': '#B2C125',
+  '^src/features/events': '#FECC2F',
+  '^src/features/login': '#F9A227',
+  '^src/features/ui': '#F5631F',
+})
+
 /** @type {import('dependency-cruiser').IConfiguration} */
 module.exports = {
   options: {
@@ -160,75 +185,25 @@ module.exports = {
             splines: 'ortho',
             rankdir: 'TB',
           },
+
           modules: [
             {
               criteria: { source: 'index\\.tsx?' },
               attributes: { fontsize: 12 },
             },
-            {
-              criteria: { source: '^src/pages' },
-              attributes: { fillcolor: '#99ffff' },
-            },
-            {
-              criteria: { source: '^src/utils' },
-              attributes: { fillcolor: '#cccccc' },
-            },
-            {
-              criteria: { source: '^src/features/api' },
-              attributes: { fillcolor: '#ccccff' },
-            },
-            {
-              criteria: { source: '^src/features/auth' },
-              attributes: { fillcolor: '#ffccff' },
-            },
-            {
-              criteria: { source: '^src/features/core' },
-              attributes: { fillcolor: '#ccffcc' },
-            },
-            {
-              criteria: { source: '^src/features/events' },
-              attributes: { fillcolor: '#77eeaa' },
-            },
-            {
-              criteria: { source: '^src/features/login' },
-              attributes: { fillcolor: '#ccccff' },
-            },
-            {
-              criteria: { source: '^src/features/ui' },
-              attributes: { fillcolor: '#ffcccc' },
-            },
-          ],
-          dependencies: [
-            {
-              criteria: { resolved: '^src/features/ui' },
-              attributes: { color: '#ffccccaa' },
-            },
 
-            {
-              criteria: { resolved: '^src/features/api' },
-              attributes: { color: '#ccccffaa' },
-            },
-            {
-              criteria: { resolved: '^src/features/auth' },
-              attributes: { color: '#ffccffaa' },
-            },
-            {
-              criteria: { resolved: '^src/features/core' },
-              attributes: { color: '#ccffccaa' },
-            },
-            {
-              criteria: { resolved: '^src/features/events' },
-              attributes: { color: '#77eeaaaa' },
-            },
-            {
-              criteria: { resolved: '^src/features/login' },
-              attributes: { color: '#ccccffaa' },
-            },
-            {
-              criteria: { resolved: '^src/features/ui' },
-              attributes: { color: '#ffccccaa' },
-            },
+            // Color files inside each module.
+            ...colors.map(([source, fillcolor]) => ({
+              criteria: { source },
+              attributes: { fillcolor: `${fillcolor}77` },
+            })),
           ],
+
+          // Color edges connecting to files inside modules.
+          dependencies: colors.map(([resolved, color]) => ({
+            criteria: { resolved },
+            attributes: { color: `${color}55` },
+          })),
         },
       },
       // archi: {
