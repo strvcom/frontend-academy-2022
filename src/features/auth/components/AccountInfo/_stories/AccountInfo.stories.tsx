@@ -2,8 +2,9 @@ import type { Story, Meta } from '@storybook/react/types-6-0'
 import React from 'react'
 
 import { createUser } from '~/features/events/types.fixtures'
-import type { IProps } from '~/features/ui/components/AccountInfo'
-import { AccountInfo } from '~/features/ui/components/AccountInfo'
+
+import type { IProps } from '../'
+import { AccountInfo } from '../'
 
 export default {
   title: 'UI/Account Info',

@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import * as theme from '../../theme'
+import { theme } from '~/features/ui'
 
 export const Wrapper = styled.div`
   display: flex;
