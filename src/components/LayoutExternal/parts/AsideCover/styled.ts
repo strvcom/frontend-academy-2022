@@ -1,11 +1,11 @@
 import styled from 'styled-components'
 
-import { colors, mq, font, typography } from '../../../../theme'
+import { theme } from '~/features/ui'
 
 export const Aside = styled.aside`
   display: none;
 
-  ${mq.medium} {
+  ${theme.mq.medium} {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -14,9 +14,9 @@ export const Aside = styled.aside`
     width: 30%;
     max-width: 48rem;
     min-width: 30rem;
-    color: ${colors.text.inverted};
+    color: ${theme.colors.text.inverted};
     text-align: center;
-    background-color: ${colors.background.dark};
+    background-color: ${theme.colors.background.dark};
   }
 `
 
@@ -30,12 +30,12 @@ export const Quote = styled.q`
   margin: 2rem 0;
   text-align: center;
   font-size: clamp(2rem, 2.2vw, 3.6rem);
-  font-family: ${font.quotes};
+  font-family: ${theme.font.quotes};
   line-height: 1.166;
 `
 
 export const FigCaption = styled.figcaption`
-  ${typography.paragraph.large}
+  ${theme.typography.paragraph.large}
 `
 
 export const Hr = styled.hr`
@@ -43,5 +43,5 @@ export const Hr = styled.hr`
   border: none;
   border-top: 2px solid currentColor;
   margin: 1.5rem auto;
-  color: ${colors.accent.primary};
+  color: ${theme.colors.accent.primary};
 `

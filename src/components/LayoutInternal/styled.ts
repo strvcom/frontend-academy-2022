@@ -1,10 +1,10 @@
 import styled, { createGlobalStyle } from 'styled-components'
 
-import { colors } from '../../theme'
+import { theme } from '~/features/ui'
 
 export const InternalGlobalStyle = createGlobalStyle`
 body {
-  background-color: ${colors.background.dimmed};
+  background-color: ${theme.colors.background.dimmed};
 }
 `
 

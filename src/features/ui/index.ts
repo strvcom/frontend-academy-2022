@@ -4,8 +4,6 @@ export * from './components/Button'
 export * from './components/Container'
 export * from './components/Header'
 export * from './components/Input'
-export * from './components/LayoutExternal'
-export * from './components/LayoutInternal'
 export * from './components/StyleReset'
 export * from './components/VerticalCenter'
 

@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
-import { mq } from '../../theme'
-import { VerticalCenter } from '../VerticalCenter'
+import { theme, VerticalCenter } from '~/features/ui'
 
 export const Layout = styled.div`
   display: flex;
@@ -9,7 +8,7 @@ export const Layout = styled.div`
   min-height: 100%;
   text-align: center;
 
-  ${mq.medium} {
+  ${theme.mq.medium} {
     flex-direction: row;
     text-align: start;
   }
