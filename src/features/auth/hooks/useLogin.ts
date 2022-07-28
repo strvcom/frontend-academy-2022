@@ -13,7 +13,8 @@ type LoginInput = {
 
 export const useLogin = () => {
   const { setUser } = useUserContext()
-  const result = useMutation<UserType, Error, LoginInput>(
+
+  return useMutation<UserType, Error, LoginInput>(
     'login',
     async (credentials) => {
       const response = await api.post('/auth/native', { json: credentials })
@@ -28,6 +29,4 @@ export const useLogin = () => {
       return user
     }
   )
-
-  return result
 }

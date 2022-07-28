@@ -13,7 +13,7 @@ type EventInput = {
 const useCreateEvent = () => {
   const router = useRouter()
 
-  const result = useMutation<{ success: boolean }, Error, EventInput>(
+  return useMutation<{ success: boolean }, Error, EventInput>(
     'createEvent',
     async (event) => {
       const response = await privateApi.post('/events', { json: event })
@@ -30,8 +30,6 @@ const useCreateEvent = () => {
       },
     }
   )
-
-  return result
 }
 
 export { useCreateEvent }
