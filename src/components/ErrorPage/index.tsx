@@ -1,8 +1,8 @@
 import type { NextPage } from 'next'
 import Link from 'next/link'
 
-import { Button } from '../Button'
-import { Container } from '../Container'
+import { Button } from '../../features/ui/components/Button'
+import { Container } from '../../features/ui/components/Container'
 import { LayoutExternal } from '../LayoutExternal'
 
 import { HeadImage } from './parts/HeadImage'
@@ -33,22 +33,4 @@ const ErrorPage: NextPage<Props> = ({ title, desc, redirectTo, linkLabel }) => {
   )
 }
 
-const NotFoundPage = () => (
-  <ErrorPage
-    title="404 Error - page not found"
-    desc={`Seems like Darth Vader just hits our website and drops it down.\n Please press the refresh button and everything should be fine again.`}
-    redirectTo="/"
-    linkLabel="Go to homepage"
-  />
-)
-
-const ServerErrorPage = () => (
-  <ErrorPage
-    title="Something went wrong."
-    desc={`Seems like Darth Vader just hits our website and drops it down.\n Please press the refresh button and everything should be fine again.`}
-    redirectTo="" // empty to reload
-    linkLabel="Refresh"
-  />
-)
-
-export { ServerErrorPage, NotFoundPage }
+export { ErrorPage }
