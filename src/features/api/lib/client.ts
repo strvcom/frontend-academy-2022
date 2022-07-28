@@ -1,3 +1,4 @@
+import { env } from '~/env'
 import { setAccessToken, setRefreshToken } from '~/features/auth'
 
 import type {
@@ -6,18 +7,8 @@ import type {
 } from './network-provider'
 import { NetworkProvider } from './network-provider'
 
-const apiUrl = process.env.NEXT_PUBLIC_API_URL
-const apiKey = process.env.NEXT_PUBLIC_API_KEY
-
-// Safeguard the application isn't initiated without NEXT_PUBLIC_API_URL
-if (!apiUrl) {
-  throw new Error('Missing NEXT_PUBLIC_API_URL environment variable')
-}
-
-// Safeguard the application isn't initiated without NEXT_PUBLIC_API_KEY
-if (!apiKey) {
-  throw new Error('Missing NEXT_PUBLIC_API_KEY environment variable')
-}
+const apiUrl = env('NEXT_PUBLIC_API_URL')
+const apiKey = env('NEXT_PUBLIC_API_KEY')
 
 const persistTokens: AfterRequestInterceptor = (
   _request,

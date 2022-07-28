@@ -1,8 +1,9 @@
 import Head from 'next/head'
 import type { FC } from 'react'
 
-const baseUrl =
-  process.env.NEXT_PUBLIC_DEPLOYMENT_URL ?? 'http://localhost:3000'
+import { env } from '~/env'
+
+const baseUrl = env('NEXT_PUBLIC_DEPLOYMENT_URL', 'http://localhost:3000')
 
 export const HeadDefault: FC = () => (
   <Head>

@@ -11,6 +11,7 @@
   },
 
   "rules": {
+    "no-process-env": "error",
     "react/require-default-props": [0],
     "react/sort-comp": "off",
     "import/extensions": [2, { "json": "always" }],
