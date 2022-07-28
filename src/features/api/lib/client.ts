@@ -7,8 +7,10 @@ import type {
 } from './network-provider'
 import { NetworkProvider } from './network-provider'
 
-const apiUrl = env('NEXT_PUBLIC_API_URL')
-const apiKey = env('NEXT_PUBLIC_API_KEY')
+const config = {
+  url: env('NEXT_PUBLIC_API_URL'),
+  key: env('NEXT_PUBLIC_API_KEY'),
+}
 
 const persistTokens: AfterRequestInterceptor = (
   _request,
@@ -26,12 +28,12 @@ const persistTokens: AfterRequestInterceptor = (
  * Before request hook to append API Key header on all requests.
  */
 const appendAPIKey: BeforeRequestInterceptor = (request) => {
-  request.headers.append('APIKey', apiKey)
+  request.headers.append('APIKey', config.key)
   return request
 }
 
 const api = new NetworkProvider({
-  baseUrl: apiUrl,
+  baseUrl: config.url,
   interceptors: {
     beforeRequest: [appendAPIKey],
     afterRequest: [persistTokens],
