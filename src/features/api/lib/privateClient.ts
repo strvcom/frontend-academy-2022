@@ -22,36 +22,39 @@ const handleUnauthorized: AfterRequestInterceptor = async (
   response,
   context
 ) => {
-  if (response.status === 403 || response.status === 401) {
-    Sentry.captureMessage('handling unauthorized request')
+  const isUnauthorized = response.status === 403 || response.status === 401
+  const refreshToken = getRefreshToken()
 
-    const refreshToken = getRefreshToken()
-    if (!refreshToken) {
-      Sentry.captureMessage('missing refreshToken')
-
-      return response
-    }
-
-    // persistTokens interceptor will store the tokens if refresh succeeds
-    const refreshResponse = await api.post('/auth/native', {
-      json: { refreshToken },
-    })
-    if (refreshResponse.status >= 400) {
-      Sentry.captureMessage('refreshResponse failed to refresh token')
-
-      void router.replace({
-        pathname: Routes.LOGIN,
-        // we need to clear persisted stuff and context
-        query: { from: 'unauthorized' },
-      })
-      return response
-    }
-
-    // repeat request with fresh accessToken
-    return await context.client.makeRequest(request.url, { ...options })
+  if (!isUnauthorized) {
+    return response
   }
 
-  return response
+  Sentry.captureMessage('handling unauthorized request')
+
+  if (!refreshToken) {
+    Sentry.captureMessage('missing refreshToken')
+    return response
+  }
+
+  // persistTokens interceptor will store the tokens if refresh succeeds
+  const refreshResponse = await api.post('/auth/native', {
+    json: { refreshToken },
+  })
+
+  if (!refreshResponse.ok) {
+    Sentry.captureMessage('refreshResponse failed to refresh token')
+
+    void router.replace({
+      pathname: Routes.LOGIN,
+      // we need to clear persisted stuff and context
+      query: { from: 'unauthorized' },
+    })
+
+    return response
+  }
+
+  // repeat request with fresh accessToken
+  return await context.client.makeRequest(request.url, { ...options })
 }
 
 const privateApi = api.extend({
