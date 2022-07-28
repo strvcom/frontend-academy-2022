@@ -3,9 +3,6 @@ import { useForm } from 'react-hook-form'
 
 import { schema } from './schema'
 
-/**
- * Initial form input values.
- */
 const defaultValues = {
   title: '',
   description: '',
@@ -14,14 +11,8 @@ const defaultValues = {
   capacity: 1,
 }
 
-/**
- * Form input values resolver and validation adaptor.
- */
 const validation = yupResolver(schema)
 
-/**
- * Create event form.
- */
 const useCreateEventForm = () =>
   useForm({
     defaultValues,
