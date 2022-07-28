@@ -2,10 +2,12 @@ import type { NextPage } from 'next'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 
-import { useUserContext, useLogin } from '~/features/auth'
-import { Container, Input, LayoutExternal } from '~/features/ui'
+import { LayoutExternal } from '~/components/LayoutExternal'
+import { Container, Input } from '~/features/ui'
 
-import { useLoginForm } from '../../lib/login-form'
+import { useUserContext } from '../../contexts/user'
+import { useLogin } from '../../hooks/login'
+import { useLoginForm } from '../../hooks/login-form'
 
 import {
   Description,

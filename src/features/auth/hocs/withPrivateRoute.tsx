@@ -4,7 +4,7 @@ import { useEffect } from 'react'
 
 import { Routes } from '~/features/core'
 
-import { getPersistedUser } from '../storage'
+import { getPersistedUser } from '../lib/storage'
 
 export const withPrivateRoute = (WrappedComponent: NextPage): NextPage => {
   const HOCComponent: NextPage = ({ ...props }) => {

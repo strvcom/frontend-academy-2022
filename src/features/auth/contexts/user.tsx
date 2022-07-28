@@ -1,22 +1,21 @@
 import * as Sentry from '@sentry/nextjs'
 import type { FC, ReactNode } from 'react'
-import { useEffect } from 'react'
-import { useMemo, useCallback } from 'react'
-import React, { createContext, useState, useContext } from 'react'
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
+  useCallback,
+} from 'react'
 
 import {
   getPersistedUser,
   removeAccessToken,
   removePersistedUser,
   removeRefreshToken,
-} from '../storage'
-
-export type UserType = {
-  id: string
-  firstName: string
-  lastName: string
-  email: string
-}
+} from '../lib/storage'
+import type { UserType } from '../types'
 
 type ContextValue = {
   user: UserType | null

@@ -1,7 +1,7 @@
 import type { Story, Meta } from '@storybook/react/types-6-0'
 import React, { useEffect, useState } from 'react'
 
-import { Input } from '~/features/ui/components/Input'
+import { Input } from '../'
 
 type StoryProps = { label: string; hasError: boolean }
 

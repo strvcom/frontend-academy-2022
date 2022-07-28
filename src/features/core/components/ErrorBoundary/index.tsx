@@ -2,7 +2,7 @@ import * as Sentry from '@sentry/nextjs'
 import type { ReactNode } from 'react'
 import { Component } from 'react'
 
-import { ServerErrorPage } from '~/features/ui'
+import ServerErrorPage from '~/pages/500'
 
 type Props = {
   fallback?: ReactNode

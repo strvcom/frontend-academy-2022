@@ -1,1 +1,1 @@
-export { LoginPage as default } from '~/features/login'
+export { LoginPage as default } from '~/features/auth/pages/LoginPage'

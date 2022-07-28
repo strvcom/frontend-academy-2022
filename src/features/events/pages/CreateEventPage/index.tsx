@@ -2,9 +2,10 @@ import { set as setTime } from 'date-fns'
 import type { NextPage } from 'next'
 import Link from 'next/link'
 
+import { LayoutInternal } from '~/components/LayoutInternal'
 import { withPrivateRoute } from '~/features/auth'
 import { Routes } from '~/features/core'
-import { Input, LayoutInternal } from '~/features/ui'
+import { Input } from '~/features/ui'
 
 import { useCreateEvent } from '../../hooks/useCreateEvent'
 import { useCreateEventForm, EVENT_MIN_DATE } from '../../lib/create-event-form'

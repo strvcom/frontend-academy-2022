@@ -4,7 +4,7 @@ import type { Story, Meta } from '@storybook/react/types-6-0'
 import type { ButtonHTMLAttributes } from 'react'
 import React from 'react'
 
-import { Button } from '~/features/ui/components/Button'
+import { Button } from '../'
 
 export default {
   title: 'UI/Button',

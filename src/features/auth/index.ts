@@ -1,4 +1,5 @@
-export * from './contexts/userContext'
-export * from './storage'
-export { useLogin } from './hooks/useLogin'
+export * from './contexts/user'
+export * from './lib/storage'
+export { useLogin } from './hooks/login'
 export { withPrivateRoute } from './hocs/withPrivateRoute'
+export { AccountInfo } from './components/AccountInfo'

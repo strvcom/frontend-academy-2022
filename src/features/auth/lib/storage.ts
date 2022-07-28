@@ -1,4 +1,4 @@
-import type { UserType } from '~/features/auth'
+import type { UserType } from '../types'
 
 export const getAccessToken = () => {
   return window.localStorage.getItem('accessToken')

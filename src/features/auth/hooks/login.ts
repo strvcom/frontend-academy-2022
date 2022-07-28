@@ -2,9 +2,9 @@ import { useMutation } from 'react-query'
 
 import { api } from '~/features/api'
 
-import type { UserType } from '../contexts/userContext'
-import { useUserContext } from '../contexts/userContext'
-import { setPersistedUser } from '../storage'
+import { useUserContext } from '../contexts/user'
+import { setPersistedUser } from '../lib/storage'
+import type { UserType } from '../types'
 
 type LoginInput = {
   email: string
