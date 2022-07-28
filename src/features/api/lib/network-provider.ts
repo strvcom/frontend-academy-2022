@@ -49,6 +49,71 @@ type NetworkProviderOptions = RequestInit & {
   headers?: Headers
 }
 
+/**
+ * Ensure minimal request options object.
+ */
+const normalizeOptions = (options: NetworkProviderOptions) => ({
+  ...options,
+  method: options.method ?? 'GET',
+  headers: options.headers ?? new Headers(),
+  interceptors: {
+    beforeRequest: options.interceptors?.beforeRequest ?? [],
+    afterRequest: options.interceptors?.afterRequest ?? [],
+  },
+})
+
+/**
+ * Merge multiple request header configs.
+ */
+const mergeHeaders = (...sources: HeadersInit[]) => {
+  const result: Record<string, string> = {}
+
+  for (const source of sources) {
+    const headers = new Headers(source)
+    let header = headers.entries().next()
+    while (!header.done) {
+      result[header.value[0]] = header.value[1]
+      header = headers.entries().next()
+    }
+  }
+
+  return new Headers(result)
+}
+
+/**
+ * Merge multiple interceptor objects.
+ */
+const mergeInterceptors = (...list: NetworkProviderInterceptors[]) =>
+  list.reduce(
+    (left, right) => ({
+      beforeRequest: [
+        ...(left.beforeRequest ?? []),
+        ...(right.beforeRequest ?? []),
+      ],
+      afterRequest: [
+        ...(left.afterRequest ?? []),
+        ...(right.afterRequest ?? []),
+      ],
+    }),
+    { beforeRequest: [], afterRequest: [] }
+  )
+
+/**
+ * Merge multiple request configs.
+ */
+const mergeOptions = (...list: Array<NetworkProviderOptions | undefined>) =>
+  list
+    .filter((options): options is NetworkProviderOptions => Boolean(options))
+    .reduce((left, right) => ({
+      ...left,
+      ...right,
+      headers: mergeHeaders(left.headers ?? {}, right.headers ?? {}),
+      interceptors: mergeInterceptors(
+        left.interceptors ?? {},
+        right.interceptors ?? {}
+      ),
+    }))
+
 class NetworkProvider {
   private readonly options: NetworkProviderOptions
 
@@ -56,106 +121,43 @@ class NetworkProvider {
     this.options = options
   }
 
-  static normalizeOptions(options: NetworkProviderOptions) {
-    if (!options.headers) {
-      options.headers = new Headers()
-    }
-    if (!options.method) {
-      options.method = 'GET'
-    }
-    if (!options.interceptors) {
-      options.interceptors = {}
-    }
-    if (!options.interceptors.beforeRequest) {
-      options.interceptors.beforeRequest = []
-    }
-    if (!options.interceptors.afterRequest) {
-      options.interceptors.afterRequest = []
-    }
-    return options
-  }
-
-  static mergeHeaders(...sources: HeadersInit[]) {
-    const result: Record<string, string> = {}
-
-    for (const source of sources) {
-      const headers: Headers = new Headers(source)
-      let header = headers.entries().next()
-      while (!header.done) {
-        result[header.value[0]] = header.value[1]
-        header = headers.entries().next()
-      }
-    }
-
-    return new Headers(result)
-  }
-
-  static mergeOptions(
-    options: NetworkProviderOptions,
-    newOptions?: NetworkProviderOptions
-  ) {
-    const headers = NetworkProvider.mergeHeaders(
-      options.headers ?? {},
-      newOptions?.headers ?? {}
-    )
-    const beforeRequest = [
-      ...(options.interceptors?.beforeRequest ?? []),
-      ...(newOptions?.interceptors?.beforeRequest ?? []),
-    ]
-    const afterRequest = [
-      ...(options.interceptors?.afterRequest ?? []),
-      ...(newOptions?.interceptors?.afterRequest ?? []),
-    ]
-    return {
-      ...options,
-      ...newOptions,
-      headers,
-      interceptors: {
-        beforeRequest,
-        afterRequest,
-      },
-    }
-  }
-
   extend(options: NetworkProviderOptions) {
-    return new NetworkProvider(
-      NetworkProvider.mergeOptions(this.options, options)
-    )
+    return new NetworkProvider(mergeOptions(this.options, options))
   }
 
   async get(url: string, options?: NetworkProviderOptions) {
-    return await this.makeRequest(url, {
-      ...NetworkProvider.mergeOptions(this.options, options),
-      method: 'GET',
-    })
+    return await this.makeRequest(
+      url,
+      mergeOptions(this.options, options, { method: 'GET' })
+    )
   }
 
   async post(url: string, options?: NetworkProviderOptions) {
-    return await this.makeRequest(url, {
-      ...NetworkProvider.mergeOptions(this.options, options),
-      method: 'POST',
-    })
+    return await this.makeRequest(
+      url,
+      mergeOptions(this.options, options, { method: 'POST' })
+    )
   }
 
   async put(url: string, options?: NetworkProviderOptions) {
-    return await this.makeRequest(url, {
-      ...NetworkProvider.mergeOptions(this.options, options),
-      method: 'PUT',
-    })
+    return await this.makeRequest(
+      url,
+      mergeOptions(this.options, options, { method: 'PUT' })
+    )
   }
 
   async patch(url: string, options?: NetworkProviderOptions) {
-    return await this.makeRequest(url, {
-      ...NetworkProvider.mergeOptions(this.options, options),
-      method: 'PATCH',
-    })
+    return await this.makeRequest(
+      url,
+      mergeOptions(this.options, options, { method: 'PATCH' })
+    )
   }
 
   async delete(url: string, options?: NetworkProviderOptions) {
-    return await this.makeRequest(url, {
-      ...NetworkProvider.mergeOptions(this.options, options),
-      method: 'DELETE',
-    })
+    return await this.makeRequest(
+      url,
+      mergeOptions(this.options, options, { method: 'DELETE' })
+    )
   }
 
   /**
@@ -164,7 +166,7 @@ class NetworkProvider {
    */
   async makeRequest(url: string, options: NetworkProviderOptions) {
     const { baseUrl, interceptors, ...requestOptions } =
-      NetworkProvider.normalizeOptions(options)
+      normalizeOptions(options)
 
     // Set content-type header to application/json if not already set
     if (requestOptions.json !== undefined) {
