@@ -23,9 +23,6 @@ const Page: NextPage = () => {
   const form = useCreateEventForm()
   const { mutate } = useCreateEvent()
 
-  /**
-   * Create event handler.
-   */
   const handleSubmit = form.handleSubmit(({ date, time, ...rest }) => {
     const [hours, minutes] = time.split(':').map(Number)
 
