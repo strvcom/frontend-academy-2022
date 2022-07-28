@@ -2,11 +2,9 @@ import type { Story, Meta } from '@storybook/react/types-6-0'
 import React from 'react'
 
 import { createUser } from '~/features/events/types.fixtures'
-import type {
-  ComponentProps,
-  ContainerProps,
-} from '~/features/ui/components/Header'
-import { HeaderComponent } from '~/features/ui/components/Header'
+
+import { HeaderComponent } from '../'
+import type { ComponentProps, ContainerProps } from '../'
 
 export default {
   title: 'UI/Header',

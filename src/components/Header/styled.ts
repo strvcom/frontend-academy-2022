@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components'
 
-import * as theme from '../../theme'
+import { theme } from '~/features/ui'
 
 import { Logo } from './parts/Logo'
 
