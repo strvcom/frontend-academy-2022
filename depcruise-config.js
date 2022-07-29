@@ -26,13 +26,13 @@ const prefix = process.env.VERCEL
  */
 const colors = Object.entries({
   '^src/pages': '#A363D9',
-  '^src/utils': '#AAA9A9',
   '^src/features/api': '#3FA4D8',
   '^src/features/auth': '#34BEB8',
   '^src/features/core': '#B2C125',
   '^src/features/events': '#FECC2F',
   '^src/features/login': '#F9A227',
   '^src/features/ui': '#F5631F',
+  '^src': '#AAA9A9',
 })
 
 /** @type {import('dependency-cruiser').IConfiguration} */

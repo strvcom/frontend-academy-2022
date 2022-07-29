@@ -1,1 +1,1 @@
-export { CreateEventPage as default } from '~/features/events'
+export { CreateEventPage as default } from '~/features/events/pages/CreateEventPage'
