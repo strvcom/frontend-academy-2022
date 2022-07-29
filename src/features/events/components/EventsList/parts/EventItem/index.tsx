@@ -9,6 +9,7 @@ import {
   Description,
   Name,
   Title,
+  Time,
   EditButton,
 } from './styled'
 
@@ -24,7 +25,7 @@ export type Props = {
  */
 export const EventItem: FC<Props> = ({ event, isRow = false }) => (
   <Article isRow={isRow}>
-    <time>{format(new Date(event.startsAt), 'LLLL d, y – p')}</time>
+    <Time>{format(new Date(event.startsAt), 'LLLL d, y – p')}</Time>
     <Title>{event.title}</Title>
     <Name>
       {event.owner.firstName} {event.owner.lastName}

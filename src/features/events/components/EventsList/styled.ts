@@ -34,7 +34,7 @@ export const List = styled.ul<{ view: ViewType }>`
         grid-template-columns: 1fr auto;
         align-items: center;
 
-        > *:not(:nth-last-child(3) ~ *) {
+        > *:not(:nth-last-child(4) ~ *) {
           grid-column: 1 / 3;
         }
       }
@@ -43,4 +43,5 @@ export const List = styled.ul<{ view: ViewType }>`
 
 export const ListItem = styled.li`
   display: flex;
+  align-items: flex-start;
 `
