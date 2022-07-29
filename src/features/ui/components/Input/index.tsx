@@ -1,7 +1,7 @@
 import type { FC, InputHTMLAttributes } from 'react'
 import { forwardRef } from 'react'
 
-import { useToggle } from '~/utils/hooks/useToggle'
+import { useToggle } from '~/hooks/useToggle'
 
 import { EyeIcon } from './parts/EyeIcon'
 import {
