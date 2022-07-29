@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import type { FC } from 'react'
 
-import { Routes } from '~/features/core'
+import { Routes } from '~/constants/routes'
 
 import { PlusIcon } from './parts/PlusIcon'
 import { CreateLink } from './styled'

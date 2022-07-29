@@ -3,8 +3,8 @@ import type { NextPage } from 'next'
 import Link from 'next/link'
 
 import { LayoutInternal } from '~/components/LayoutInternal'
+import { Routes } from '~/constants/routes'
 import { withPrivateRoute } from '~/features/auth'
-import { Routes } from '~/features/core'
 import { Input } from '~/features/ui'
 
 import { useCreateEvent } from '../../hooks/useCreateEvent'

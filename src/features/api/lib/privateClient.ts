@@ -1,8 +1,8 @@
 import * as Sentry from '@sentry/nextjs'
 import router from 'next/router'
 
+import { Routes } from '~/constants/routes'
 import { getAccessToken, getRefreshToken } from '~/features/auth'
-import { Routes } from '~/features/core'
 
 import { api } from './client'
 import type {

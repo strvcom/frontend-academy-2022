@@ -2,8 +2,9 @@ import type { AppProps } from 'next/app'
 import { QueryClient, QueryClientProvider } from 'react-query'
 import { ReactQueryDevtools } from 'react-query/devtools'
 
+import { ErrorBoundary } from '~/components/ErrorBoundary'
+import { HeadDefault } from '~/components/HeadDefault'
 import { UserContextProvider } from '~/features/auth'
-import { ErrorBoundary, HeadDefault } from '~/features/core'
 import {
   EventFilterContextProvider,
   EventViewContextProvider,

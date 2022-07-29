@@ -2,7 +2,7 @@ import type { NextPage } from 'next'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 
-import { Routes } from '~/features/core'
+import { Routes } from '~/constants/routes'
 
 import { getPersistedUser } from '../lib/storage'
 
