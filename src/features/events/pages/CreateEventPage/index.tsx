@@ -2,7 +2,7 @@ import { set as setTime } from 'date-fns'
 import type { NextPage } from 'next'
 import Link from 'next/link'
 
-import { LayoutInternal } from '~/components/LayoutInternal'
+import { LayoutInternal } from '~/components/layouts/LayoutInternal'
 import { Routes } from '~/constants/routes'
 import { withPrivateRoute } from '~/features/auth'
 import { Input } from '~/features/ui'

@@ -1,6 +1,6 @@
 import type { NextPage } from 'next'
 
-import { LayoutInternal } from '~/components/LayoutInternal'
+import { LayoutInternal } from '~/components/layouts/LayoutInternal'
 import { Container } from '~/features/ui'
 
 import { EventsList } from '../../components/EventsList'

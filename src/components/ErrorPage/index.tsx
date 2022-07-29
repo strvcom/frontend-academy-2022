@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 import { Button } from '../../features/ui/components/Button'
 import { Container } from '../../features/ui/components/Container'
-import { LayoutExternal } from '../LayoutExternal'
+import { LayoutExternal } from '../layouts/LayoutExternal'
 
 import { HeadImage } from './parts/HeadImage'
 import { Description, Title } from './styled'

@@ -1,6 +1,6 @@
 import type { ReactNode, FC } from 'react'
 
-import { Header } from '../Header'
+import { Header } from '../../Header'
 
 import { InternalGlobalStyle, Layout } from './styled'
 

@@ -2,7 +2,7 @@ import type { NextPage } from 'next'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 
-import { LayoutExternal } from '~/components/LayoutExternal'
+import { LayoutExternal } from '~/components/layouts/LayoutExternal'
 import { Container, Input } from '~/features/ui'
 
 import { useUserContext } from '../../contexts/user'
