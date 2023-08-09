@@ -21,6 +21,7 @@ export const LabelText = styled.span`
   color: ${colors.text.formLabel};
   transition: 0.4s transform;
   transform-origin: 0 50%;
+  cursor: text;
 `
 
 /*
