@@ -16,7 +16,7 @@ Follow this section to get the project running on your development machine.
 Before getting started, make sure you have these tools installed:
 
 - [Git](https://git-scm.com/)
-- [Node.js v14](https://nodejs.org/en/)
+- [Node.js v18](https://nodejs.org/en/)
 - [Yarn](https://yarnpkg.com/)
 
 > We recommend you use [nvm](https://github.com/nvm-sh/nvm) to install Node.js.

@@ -16,10 +16,10 @@ const withBundleAnalyzer = bundleAnalyzer({
   enabled: Boolean(process.env.ANALYZE),
 })
 
-const sentryWebpackPluginOptions = {
-  silent: true,
-}
-
 module.exports = withBundleAnalyzer(
-  withSentryConfig(nextConfig, sentryWebpackPluginOptions)
+  withSentryConfig(nextConfig, {
+    silent: true,
+    org: 'strv-temporary',
+    project: 'frontend-academy',
+  })
 )
