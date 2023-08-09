@@ -114,6 +114,14 @@ const mergeOptions = (...list: Array<NetworkProviderOptions | undefined>) =>
       ),
     }))
 
+/**
+ * Resolves and absolute URL from url and baseUrl.
+ */
+const resolveRequestURL = (url: string, baseUrl?: string) =>
+  [baseUrl ?? window.location.toString(), url]
+    .map((path) => path.replace(/(?:^\/+)|(?:\/+$)/gu, ''))
+    .join('/')
+
 class NetworkProvider {
   private readonly options: NetworkProviderOptions
 
@@ -178,10 +186,7 @@ class NetworkProvider {
     }
 
     // Create request with base url
-    let request = new Request(
-      baseUrl ? new URL(url, baseUrl).toString() : url,
-      requestOptions
-    )
+    let request = new Request(resolveRequestURL(url, baseUrl), requestOptions)
 
     // Run before request middleware
     if (interceptors?.beforeRequest?.length) {
