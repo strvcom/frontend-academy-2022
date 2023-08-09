@@ -4,3 +4,8 @@ export type UserType = {
   lastName: string
   email: string
 }
+
+export type AuthError = {
+  code: string
+  message: string
+}

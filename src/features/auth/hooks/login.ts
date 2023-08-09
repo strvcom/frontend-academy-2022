@@ -4,7 +4,7 @@ import { api } from '~/features/api'
 
 import { useUserContext } from '../contexts/user'
 import { setPersistedUser } from '../lib/storage'
-import type { UserType } from '../types'
+import type { UserType, AuthError } from '../types'
 
 type LoginInput = {
   email: string
@@ -18,15 +18,22 @@ export const useLogin = () => {
     'login',
     async (credentials) => {
       const response = await api.post('/auth/native', { json: credentials })
+      const data = (await response.json().catch(() => null)) as
+        | UserType
+        | AuthError
+        | null
 
-      if (!response.ok) {
+      if (data && 'code' in data) {
+        throw new Error(data.message)
+      }
+
+      if (!response.ok || !data) {
         throw new Error('Login Failed')
       }
 
-      const user = (await response.json()) as UserType
-      setUser(user)
-      setPersistedUser(user)
-      return user
+      setUser(data)
+      setPersistedUser(data)
+      return data
     }
   )
 }
