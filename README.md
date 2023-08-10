@@ -55,7 +55,7 @@ The application is deployed at [Vercel](https://vercel.com/) everytime new commi
 
 ## Links
 
-- [API Docs](https://strvtestprojectv2.docs.apiary.io/) - Apiary
+- [API Docs](https://strvfrontendtestproject.docs.apiary.io/) - Apiary
 - [UI Design](https://www.figma.com/file/1sXplbYZYnKSb6eXaJ44pT/Eventio---Frontend-Test-Project) - Figma
 
 ## Architecture
