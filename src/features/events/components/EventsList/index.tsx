@@ -1,13 +1,13 @@
 import type { FC } from 'react'
 
+import { useEventFilterContext } from '../../contexts/event-filter'
+import { useEventViewContext, ViewType } from '../../contexts/event-view'
+import { useEvents } from '../../hooks/useEvents'
+
 import { EventItem } from './parts/EventItem'
 import { NavigationFilter } from './parts/NavigationFilter'
 import { NavigationView } from './parts/NavigationView'
 import { Nav, List, ListItem } from './styled'
-
-import { useEventFilterContext } from '../../contexts/event-filter'
-import { useEventViewContext, ViewType } from '../../contexts/event-view'
-import { useEvents } from '../../hooks/useEvents'
 
 /**
  * Renders a list of events, with filtering/sorting/view type options.

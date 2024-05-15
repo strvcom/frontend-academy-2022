@@ -1,10 +1,10 @@
 import type { FC } from 'react'
 
+import { ViewType } from '../../../../contexts/event-view'
+
 import { GridIcon } from './parts/GridIcon'
 import { ListIcon } from './parts/ListIcon'
 import { ListItem } from './styled'
-
-import { ViewType } from '../../../../contexts/event-view'
 
 export type Props = {
   activeView: ViewType

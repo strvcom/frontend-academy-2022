@@ -17,9 +17,10 @@ const withBundleAnalyzer = bundleAnalyzer({
 })
 
 module.exports = withBundleAnalyzer(
-  withSentryConfig(nextConfig, {
-    silent: true,
-    org: 'strv-temporary',
-    project: 'frontend-academy',
-  })
+  // withSentryConfig(nextConfig, {
+  //   silent: true,
+  // org: 'strv-temporary',
+  // project: 'frontend-academy',
+  // })
+  nextConfig
 )

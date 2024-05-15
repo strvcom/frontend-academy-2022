@@ -1,8 +1,8 @@
 import type { FC } from 'react'
 
-import { List, ListItem, MobileToggleLabel } from './styled'
-
 import { FilterType } from '../../../../contexts/event-filter'
+
+import { List, ListItem, MobileToggleLabel } from './styled'
 
 export type Props = {
   activeFilter: FilterType

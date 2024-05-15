@@ -1,6 +1,8 @@
 import { format } from 'date-fns'
 import type { FC } from 'react'
 
+import type { Event } from '../../../../types'
+
 import { UserIcon } from './parts/UserIcon'
 import {
   Article,
@@ -12,8 +14,6 @@ import {
   Time,
   EditButton,
 } from './styled'
-
-import type { Event } from '../../../../types'
 
 export type Props = {
   event: Event
